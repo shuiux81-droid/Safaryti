@@ -69,9 +69,67 @@ export function parseHash(rawHash) {
   return { view, param };
 }
 
+function preloadContactMedia(includeCardPhoto) {
+  if (typeof document === 'undefined' || !document.head) return;
+  const cm = window.__SAFARYTI_CONTACT_MEDIA__;
+  if (!cm) return;
+  const ensure = (key, attrs) => {
+    if (document.head.querySelector('link[data-c-pre="' + key + '"]')) return;
+    const link = document.createElement('link');
+    link.setAttribute('data-c-pre', key);
+    for (const k of Object.keys(attrs)) {
+      if (attrs[k] != null) link.setAttribute(k, attrs[k]);
+    }
+    document.head.appendChild(link);
+  };
+  ensure('hm', {
+    rel: 'preload',
+    as: 'image',
+    type: 'image/webp',
+    href: cm.hmHref,
+    imagesrcset: cm.hm,
+    imagesizes: '100vw',
+    media: '(max-width: 767px)',
+    fetchpriority: 'high',
+  });
+  ensure('hd', {
+    rel: 'preload',
+    as: 'image',
+    type: 'image/webp',
+    href: cm.hdHref,
+    imagesrcset: cm.hd,
+    imagesizes: '100vw',
+    media: '(min-width: 768px)',
+    fetchpriority: 'high',
+  });
+  if (includeCardPhoto) {
+    ensure('pm', {
+      rel: 'preload',
+      as: 'image',
+      type: 'image/webp',
+      href: cm.pmHref,
+      imagesrcset: cm.pm,
+      imagesizes: '(min-width: 1024px) 480px, 92vw',
+      media: '(max-width: 767px)',
+      fetchpriority: 'high',
+    });
+    ensure('pd', {
+      rel: 'preload',
+      as: 'image',
+      type: 'image/webp',
+      href: cm.pdHref,
+      imagesrcset: cm.pd,
+      imagesizes: '(min-width: 1024px) 480px, 92vw',
+      media: '(min-width: 768px)',
+      fetchpriority: 'high',
+    });
+  }
+}
+
 export function prefetchRouteByHash(href) {
   if (!href) return;
   const route = parseHash(href);
+  if (route.view === 'contact') preloadContactMedia(false);
   const loader = isTipsHubRoute(route) ? ROUTE_LOADERS.tips : ROUTE_LOADERS[route.view];
   if (loader) {
     loader().catch(() => {});
@@ -152,6 +210,7 @@ export function renderRoute(isInitial) {
   if (!mainEl) return;
   const seq = ++activeRouteSeq;
   const route = parseHash();
+  if (route.view === 'contact') preloadContactMedia(true);
   setState({ currentView: route.view, route, activeSceneIndex: -1 });
   clearTimeout(routeTimer);
 

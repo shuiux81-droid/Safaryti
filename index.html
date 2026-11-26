@@ -33,6 +33,28 @@
         navKey=(cp==='africa'||cp==='إفريقيا')?'africa':(cp==='asia'||cp==='آسيا')?'asia':(cp==='tips'||cp==='نصائح السفر'||cp==='trip-planning'||cp==='تخطيط الرحلات والتنقل'||cp==='travel-safety'||cp==='الأمن والسلامة في السفر')?'tips':(cp==='food'||cp==='heritage'||cp==='المأكولات العالمية'||cp==='التراث والتقاليد')?'culture':(cp==='europe'||cp==='أوروبا'||cp==='north-america'||cp==='أمريكا الشمالية'||cp==='south-america'||cp==='أمريكا الجنوبية'||cp==='australia'||cp==='أستراليا'||cp==='أستراليا (أوقيانوسيا)')?'discover':'';
       }else if(!isHome){navKey='';}
       d.dataset.initNav=navKey;
+      var cb=/*__SAFARYTI_CONTACT_BOOT__*/null;
+      var cm=cb&&cb.m?cb.m:{
+        hm:'./mobile/hero-marsa-m.webp 800w',
+        hmHref:'./mobile/hero-marsa-m.webp',
+        hd:'./src/assets/images/hero_marsa_alam_1794996468348-240w.webp 240w, ./src/assets/images/hero_marsa_alam_1794996468348-480w.webp 480w, ./src/assets/images/hero_marsa_alam_1794996468348-800w.webp 800w, ./src/assets/images/hero_marsa_alam_1794996468348-1120w.webp 1120w, ./src/assets/images/hero_marsa_alam_1794996468348.webp 1376w',
+        hdHref:'./src/assets/images/hero_marsa_alam_1794996468348.webp',
+        pm:'./mobile/m/contact_temple_traveler_1795429682873-320w.webp 320w, ./mobile/m/contact_temple_traveler_1795429682873-480w.webp 480w',
+        pmHref:'./mobile/m/contact_temple_traveler_1795429682873-480w.webp',
+        pd:'./src/assets/images/contact_temple_traveler_1795429682873-240w.webp 240w, ./src/assets/images/contact_temple_traveler_1795429682873-480w.webp 480w, ./src/assets/images/contact_temple_traveler_1795429682873-640w.webp 640w, ./src/assets/images/contact_temple_traveler_1795429682873-760w.webp 760w, ./src/assets/images/contact_temple_traveler_1795429682873.webp 896w',
+        pdHref:'./src/assets/images/contact_temple_traveler_1795429682873.webp'
+      };
+      window.__SAFARYTI_CONTACT_MEDIA__=cm;
+      if(v==='contact'){
+        var hdEl=document.head||d.firstElementChild;
+        var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
+        mk({rel:'preload',as:'image',type:'image/webp',href:cm.hmHref,imagesrcset:cm.hm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-c-pre':'hm'});
+        mk({rel:'preload',as:'image',type:'image/webp',href:cm.hdHref,imagesrcset:cm.hd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-c-pre':'hd'});
+        mk({rel:'preload',as:'image',type:'image/webp',href:cm.pmHref,imagesrcset:cm.pm,imagesizes:'(min-width: 1024px) 480px, 92vw',media:'(max-width: 767px)',fetchpriority:'high','data-c-pre':'pm'});
+        mk({rel:'preload',as:'image',type:'image/webp',href:cm.pdHref,imagesrcset:cm.pd,imagesizes:'(min-width: 1024px) 480px, 92vw',media:'(min-width: 768px)',fetchpriority:'high','data-c-pre':'pd'});
+        if(cb&&cb.js){for(var ji=0;ji<cb.js.length;ji++)mk({rel:'modulepreload',crossorigin:'',href:cb.js[ji]});}
+        if(cb&&cb.css){for(var ci=0;ci<cb.css.length;ci++)mk({rel:'stylesheet',href:cb.css[ci]});}
+      }
       document.addEventListener('DOMContentLoaded',function(){
         setTimeout(function(){
           if(!d.classList.contains('js-ready')){

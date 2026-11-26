@@ -151,6 +151,9 @@ export default defineConfig(() => {
           }
           const serializedMapLiteral = JSON.stringify(JSON.stringify(compactAssetMap));
           const homeDeps = new Set<string>();
+          const contactJsDeps = new Set<string>();
+          const contactCssDeps = new Set<string>();
+          let contactChunkFile = '';
           for (const [fileName, item] of Object.entries(bundle)) {
             if (item.type === 'chunk') {
               if (item.code.includes('__SAFARYTI_ASSET_MAP_JSON__')) {
@@ -162,8 +165,66 @@ export default defineConfig(() => {
                   homeDeps.add(imp);
                 }
               }
+              if (/^assets\/contact-[^/]+\.js$/.test(fileName)) {
+                contactChunkFile = fileName;
+              }
             }
           }
+          if (contactChunkFile) {
+            const queue = [contactChunkFile];
+            while (queue.length) {
+              const dep = queue.shift()!;
+              if (contactJsDeps.has(dep)) continue;
+              contactJsDeps.add(dep);
+              const chunk = bundle[dep];
+              if (chunk && chunk.type === 'chunk') {
+                for (const imp of chunk.imports || []) {
+                  if (!contactJsDeps.has(imp)) queue.push(imp);
+                }
+                const importedCss = (chunk as { viteMetadata?: { importedCss?: Set<string> } }).viteMetadata?.importedCss;
+                if (importedCss) {
+                  for (const cssFile of importedCss) {
+                    contactCssDeps.add(cssFile);
+                  }
+                }
+              }
+            }
+          }
+          const contactBoot = {
+            js: Array.from(contactJsDeps).map((f) => './' + f),
+            css: Array.from(contactCssDeps).map((f) => './' + f),
+            m: {
+              hm: (assetMap['mobile/hero-marsa-m.webp'] || './mobile/hero-marsa-m.webp') + ' 800w',
+              hmHref: assetMap['mobile/hero-marsa-m.webp'] || './mobile/hero-marsa-m.webp',
+              hd: [
+                (assetMap['src/assets/images/hero_marsa_alam_1794996468348-240w.webp'] || '') + ' 240w',
+                (assetMap['src/assets/images/hero_marsa_alam_1794996468348-480w.webp'] || '') + ' 480w',
+                (assetMap['src/assets/images/hero_marsa_alam_1794996468348-800w.webp'] || '') + ' 800w',
+                (assetMap['src/assets/images/hero_marsa_alam_1794996468348-1120w.webp'] || '') + ' 1120w',
+                (assetMap['src/assets/images/hero_marsa_alam_1794996468348.webp'] || '') + ' 1376w',
+              ].join(', '),
+              hdHref:
+                assetMap['src/assets/images/hero_marsa_alam_1794996468348.webp'] ||
+                './src/assets/images/hero_marsa_alam_1794996468348.webp',
+              pm: [
+                (assetMap['mobile/m/contact_temple_traveler_1795429682873-320w.webp'] || '') + ' 320w',
+                (assetMap['mobile/m/contact_temple_traveler_1795429682873-480w.webp'] || '') + ' 480w',
+              ].join(', '),
+              pmHref:
+                assetMap['mobile/m/contact_temple_traveler_1795429682873-480w.webp'] ||
+                './mobile/m/contact_temple_traveler_1795429682873-480w.webp',
+              pd: [
+                (assetMap['src/assets/images/contact_temple_traveler_1795429682873-240w.webp'] || '') + ' 240w',
+                (assetMap['src/assets/images/contact_temple_traveler_1795429682873-480w.webp'] || '') + ' 480w',
+                (assetMap['src/assets/images/contact_temple_traveler_1795429682873-640w.webp'] || '') + ' 640w',
+                (assetMap['src/assets/images/contact_temple_traveler_1795429682873-760w.webp'] || '') + ' 760w',
+                (assetMap['src/assets/images/contact_temple_traveler_1795429682873.webp'] || '') + ' 896w',
+              ].join(', '),
+              pdHref:
+                assetMap['src/assets/images/contact_temple_traveler_1795429682873.webp'] ||
+                './src/assets/images/contact_temple_traveler_1795429682873.webp',
+            },
+          };
           extraModulePreloads = Array.from(homeDeps);
 
           const htmlAsset = bundle['index.html'];
@@ -249,6 +310,7 @@ export default defineConfig(() => {
               }
             }
 
+            out = out.replace('/*__SAFARYTI_CONTACT_BOOT__*/null', () => JSON.stringify(contactBoot));
             htmlAsset.source = out;
           }
         },

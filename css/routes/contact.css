@@ -1,4 +1,25 @@
 /* Contact view */
+.inner-header.is-img-hero {
+  background-image: none;
+  background-color: #222222;
+  overflow: hidden;
+}
+.inner-header.is-img-hero::before {
+  z-index: 1;
+}
+.inner-header.is-img-hero > .container {
+  z-index: 2;
+}
+.inner-header-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
 .contact-section {
   padding-block-start: 2.75rem;
   margin-block-end: 4.5rem;
@@ -597,19 +618,6 @@ html.no-motion .contact-reveal {
 .contact-submit-btn:focus-visible {
   outline: 2px solid #222222;
   outline-offset: 3px;
-}
-.contact-wa-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  font-size: .875rem;
-  font-weight: 600;
-  color: var(--orange-700);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.contact-wa-link:hover {
-  opacity: .85;
 }
 
 /* Success state */

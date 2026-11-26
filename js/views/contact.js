@@ -1,10 +1,15 @@
 import '../../css/routes/inner-shared.css';
 import '../../css/routes/contact.css';
-import { CONFIG, IMG } from '../config.js';
+import { CONFIG, resolveBaseAssetUrl } from '../config.js';
 import { registerCleanup } from '../store.js';
 import { esc, isReducedMotion, socialSvg, renderPictureHtml } from '../utils.js';
 import { activateAdSlots } from '../components/adSlots.js';
 import { renderInnerHeaderHtml } from '../components/innerHeader.js';
+
+const CONTACT_HERO_TITLE = 'تواصل معنا';
+const CONTACT_HERO_BG = './src/assets/images/hero_marsa_alam_1794996468348.jpg';
+const CONTACT_PHOTO_IMG = './src/assets/images/contact_temple_traveler_1795429682873.jpg';
+const CONTACT_PHOTO_ALT = 'مسافر يعبر بوابة معبد';
 
 export function renderContact(main) {
   const ARAB_COUNTRIES = [
@@ -25,11 +30,10 @@ export function renderContact(main) {
     { iso: 'sd', name: 'السودان', dial: '+249' },
   ];
   let selectedCountry = ARAB_COUNTRIES[0];
-  const contactCfg = CONFIG.contact || {};
-  const contactImgSrc = contactCfg.image || '';
-  const contactImgAlt = contactCfg.imageAlt || 'مسافر يعبر بوابة معبد';
-  const phoneDisplay = contactCfg.phoneDisplay || '+20 102 155 1322';
-  const phoneTel = contactCfg.phoneTel || '+201021551322';
+  const contactImgSrc = CONTACT_PHOTO_IMG;
+  const contactImgAlt = CONTACT_PHOTO_ALT;
+  const phoneDisplay = (CONFIG.contact && CONFIG.contact.phoneDisplay) || '+20 102 155 1322';
+  const phoneTel = (CONFIG.contact && CONFIG.contact.phoneTel) || '+201021551322';
 
   function renderFlagHtml(iso) {
     return (
@@ -75,12 +79,23 @@ export function renderContact(main) {
     );
   }).join('');
 
+  const heroBgPictureHtml = renderPictureHtml(CONTACT_HERO_BG, {
+    cls: 'inner-header-bg-img',
+    alt: '',
+    isHero: true,
+    loading: 'eager',
+    fetchpriority: 'high',
+    decoding: 'async',
+    sizes: '100vw',
+  });
+
   const photoImgHtml = contactImgSrc
     ? renderPictureHtml(contactImgSrc, {
         id: 'contact-photo-img',
         cls: 'contact-photo-img',
         alt: contactImgAlt,
-        loading: 'lazy',
+        loading: 'eager',
+        fetchpriority: 'high',
         decoding: 'async',
         referrerpolicy: 'no-referrer',
         sizes: '(min-width: 1024px) 480px, 92vw',
@@ -89,10 +104,14 @@ export function renderContact(main) {
 
   main.innerHTML =
     renderInnerHeaderHtml({
-      bgImage: IMG.marsa,
+      bgPictureHtml: heroBgPictureHtml,
       leftHtml:
-        '<h1 class="t-h1 no-auto-ads" tabindex="-1">تواصل معنا</h1>' +
-        '<nav class="breadcrumb" aria-label="مسار التنقل"><a href="#home">الرئيسية</a><span aria-hidden="true">›</span><span>تواصل معنا</span></nav>',
+        '<h1 class="t-h1 no-auto-ads" tabindex="-1">' +
+        CONTACT_HERO_TITLE +
+        '</h1>' +
+        '<nav class="breadcrumb" aria-label="مسار التنقل"><a href="#home">الرئيسية</a><span aria-hidden="true">›</span><span>' +
+        CONTACT_HERO_TITLE +
+        '</span></nav>',
     }) +
     '<section class="container contact-section" aria-labelledby="contact-heading">' +
     '<h2 id="contact-heading" class="contact-section-heading no-auto-ads">ارسل لنا رسالة</h2>' +
@@ -169,8 +188,8 @@ export function renderContact(main) {
     '<div class="contact-photo-frame">' +
     '<div class="contact-photo-fallback" aria-hidden="true">' +
     '<img src="' +
-    esc(CONFIG.assets.logo) +
-    '" alt="" decoding="async" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,true)">' +
+    esc(resolveBaseAssetUrl('./assets/aistudio/logo_ebd6693e.webp')) +
+    '" alt="" width="272" height="112" loading="lazy" decoding="async" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,true)">' +
     '</div>' +
     photoImgHtml +
     '<div class="contact-photo-scrim" aria-hidden="true"></div>' +

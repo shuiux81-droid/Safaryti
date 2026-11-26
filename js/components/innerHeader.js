@@ -3,11 +3,15 @@ import { toBgImageSetCss } from '../utils/viewHelpers.js';
 import { renderAdSlotHtml } from './adSlots.js';
 
 export function renderInnerHeaderHtml(opts) {
-  const bgStyle = opts.bgImage ? ' style="background-image:' + toBgImageSetCss(opts.bgImage) + '"' : '';
+  const hasPic = Boolean(opts.bgPictureHtml);
+  const bgStyle = !hasPic && opts.bgImage ? ' style="background-image:' + toBgImageSetCss(opts.bgImage) + '"' : '';
   return (
-    '<section class="inner-header no-auto-ads"' +
+    '<section class="inner-header no-auto-ads' +
+    (hasPic ? ' is-img-hero' : '') +
+    '"' +
     bgStyle +
     '>' +
+    (hasPic ? opts.bgPictureHtml : '') +
     '<div class="container inner-header-grid">' +
     '<div class="inner-header-main">' +
     opts.leftHtml +

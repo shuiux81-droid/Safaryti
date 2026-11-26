@@ -27,7 +27,26 @@ export function initSecondaryShell() {
     if (link) prefetchRouteByHash(link.getAttribute('href'));
   };
   document.addEventListener('pointerenter', onPrefetchLink, true);
+  document.addEventListener('touchstart', onPrefetchLink, { capture: true, passive: true });
   document.addEventListener('focusin', onPrefetchLink, true);
+
+  const runContactIdlePrefetch = () => {
+    if (getState().currentView !== 'contact') {
+      prefetchRouteByHash('#contact');
+    }
+  };
+  const queueContactPrefetch = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(runContactIdlePrefetch, { timeout: 2500 });
+    } else {
+      setTimeout(runContactPrefetch, 1200);
+    }
+  };
+  if (document.readyState === 'complete') {
+    queueContactPrefetch();
+  } else {
+    window.addEventListener('load', queueContactPrefetch, { once: true });
+  }
 
   // Handle same-hash re-clicks on #discover, #culture, and #search (scroll to top & focus)
   document.addEventListener('click', (e) => {
