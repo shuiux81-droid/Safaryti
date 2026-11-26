@@ -94,6 +94,12 @@ export function setupFooterAndRails() {
   const footerEl = document.getElementById('site-footer');
   const isFooterInView =
     footerEl && footerEl.getBoundingClientRect().top < (window.innerHeight || 900) + 100;
+  if (isFooterInView) {
+    const fLogoEl = document.getElementById('footer-logo-img');
+    const dbLogoEl = document.getElementById('db-logo-img');
+    if (fLogoEl) fLogoEl.loading = 'eager';
+    if (dbLogoEl) dbLogoEl.loading = 'eager';
+  }
   if (isMobileViewport() && footerEl && !isFooterInView && 'IntersectionObserver' in window) {
     let footerHydrated = false;
     const fIo = new IntersectionObserver(

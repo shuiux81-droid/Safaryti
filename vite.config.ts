@@ -268,11 +268,9 @@ export default defineConfig(() => {
               }
             }
 
-            // Emit deferred sections-below.css preload + noscript fallback
+            // Emit noscript fallback for sections-below.css (JS preload emitted selectively in head script)
             if (sectionsBelowHashed) {
-              const belowTags =
-                `<link rel="preload" as="style" href="${sectionsBelowHashed}" fetchpriority="low" onload="this.onload=null;this.rel='stylesheet'">\n` +
-                `  <noscript><link rel="stylesheet" href="${sectionsBelowHashed}"></noscript>`;
+              const belowTags = `<noscript><link rel="stylesheet" href="${sectionsBelowHashed}"></noscript>`;
               out = out.replace('<!--SAFARYTI_SECTIONS_BELOW_CSS-->', () => belowTags);
             }
 
@@ -334,6 +332,7 @@ export default defineConfig(() => {
 
             out = out.replace('/*__SAFARYTI_CONTACT_BOOT__*/null', () => JSON.stringify(contactBoot));
             out = out.replace('/*__SAFARYTI_SEARCH_BOOT__*/null', () => JSON.stringify(searchBoot));
+            out = out.replace('/*__SAFARYTI_BELOW_CSS__*/null', () => JSON.stringify(sectionsBelowHashed || ''));
             htmlAsset.source = out;
           }
         },

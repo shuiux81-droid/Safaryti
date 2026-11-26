@@ -49,10 +49,18 @@
       window.__SAFARYTI_CONTACT_MEDIA__=cm;
       var sm=sb&&sb.fd?{fd:sb.fd,fm:sb.fm}:{fd:'./src/assets/images/about_warm_clouds_1795352383366.webp',fm:'./src/assets/images/about_warm_clouds_1795352383366-480w.webp'};
       window.__SAFARYTI_SEARCH_MEDIA__=sm;
+      var bCss=/*__SAFARYTI_BELOW_CSS__*/null;
+      window.__SAFARYTI_BELOW_CSS__=bCss;
+      var hdEl=document.head||d.firstElementChild;
+      var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
+      if(v!=='search'&&bCss){
+        var bl=document.createElement('link');
+        bl.rel='preload';bl.as='style';bl.href=bCss;bl.setAttribute('fetchpriority','low');bl.setAttribute('data-sections-below-link','1');
+        bl.onload=function(){this.onload=null;this.rel='stylesheet';};
+        hdEl.appendChild(bl);
+      }
       if(v==='contact'||v==='search'){
-        var hdEl=document.head||d.firstElementChild;
         var isMob=window.matchMedia?window.matchMedia('(max-width: 767px)').matches:window.innerWidth<=767;
-        var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
         if(v==='contact'){
           mk(isMob
             ?{rel:'preload',as:'image',type:'image/webp',href:cm.hmHref,imagesrcset:cm.hm,imagesizes:'100vw',fetchpriority:'high','data-c-pre':'hero'}
@@ -64,7 +72,6 @@
           if(cb&&cb.css){for(var ci=0;ci<cb.css.length;ci++)mk({rel:'preload',as:'style',crossorigin:'',href:cb.css[ci]});}
         }else{
           mk({rel:'preload',as:'image',type:'image/webp',href:isMob?sm.fm:sm.fd,fetchpriority:'high','data-s-pre':'fbg'});
-          if(sb&&sb.belowCss)mk({rel:'stylesheet',href:sb.belowCss});
           if(sb&&sb.js){for(var sj=0;sj<sb.js.length;sj++)mk({rel:'modulepreload',crossorigin:'',href:sb.js[sj]});}
           if(sb&&sb.css){for(var sc=0;sc<sb.css.length;sc++)mk({rel:'preload',as:'style',crossorigin:'',href:sb.css[sc]});}
         }
@@ -100,9 +107,36 @@
     .is-nonhome-init #hero-band[data-ssr-hero="1"]{display:none}
     html.js #hero-band[data-ssr-hero="1"]{margin-bottom:1100px}
     html.js.is-nonhome-init #main-content{min-height:1100px}
-    html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:38.125rem}
-    @media(min-width:640px)and (max-width:1023px){html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:41.3rem}}
-    @media(min-width:1024px){html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:34.5rem}}
+    html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:calc(31.27rem + 124px)}
+    @media(min-width:640px)and (max-width:1023px){html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:calc(34.45rem + 124px)}}
+    @media(min-width:1024px){html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:calc(29.47rem + 90px)}}
+    html[data-init-view="search"]{--dusk:linear-gradient(180deg,#222222 0%,#4A2018 65%,#7A2A16 100%)}
+    html[data-init-view="search"] .container{width:100%;max-width:70rem;margin-inline:auto;padding-inline:1rem}
+    @media(min-width:640px){html[data-init-view="search"] .container{padding-inline:1.5rem}}
+    html[data-init-view="search"] .t-ui{font-size:.9375rem;font-weight:400;line-height:1.7}
+    html[data-init-view="search"] .t-meta{font-size:.8125rem;font-weight:500;line-height:1.5}
+    @media(min-width:640px){html[data-init-view="search"] .t-ui{font-size:1rem}html[data-init-view="search"] .t-meta{font-size:.875rem}}
+    html[data-init-view="search"] .site-footer{color:var(--white)}
+    @media(max-width:767.98px){html[data-init-view="search"] #site-footer{content-visibility:visible;contain-intrinsic-size:auto}}
+    html[data-init-view="search"] .footer-top{background:linear-gradient(180deg,rgba(16,12,10,.62) 0%,rgba(16,12,10,.54) 50%,rgba(16,12,10,.72) 100%),url('./src/assets/images/about_warm_clouds_1795352383366.webp') center/cover no-repeat,var(--dusk);padding-block:4rem 3rem}
+    @media(max-width:767.98px){html[data-init-view="search"] .footer-top{background:linear-gradient(180deg,rgba(16,12,10,.62) 0%,rgba(16,12,10,.54) 50%,rgba(16,12,10,.72) 100%),var(--dusk)}html[data-init-view="search"] .site-footer.is-bg-ready .footer-top{background:linear-gradient(180deg,rgba(16,12,10,.62) 0%,rgba(16,12,10,.54) 50%,rgba(16,12,10,.72) 100%),url('./src/assets/images/about_warm_clouds_1795352383366-480w.webp') center/cover no-repeat,var(--dusk)}}
+    html[data-init-view="search"] .footer-cols{display:grid;grid-template-columns:1fr;gap:2.5rem}
+    @media(min-width:640px){html[data-init-view="search"] .footer-cols{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){html[data-init-view="search"] .footer-cols{grid-template-columns:1.5fr 1fr 1fr 1fr}}
+    html[data-init-view="search"] .footer-col-title{font-size:1.125rem;font-weight:700;margin-bottom:1rem}
+    html[data-init-view="search"] .footer-link-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:.15rem}
+    html[data-init-view="search"] #footer-cats{min-height:274px}
+    @media(min-width:768px){html[data-init-view="search"] #footer-cats{min-height:11.85rem}}
+    html[data-init-view="search"] .footer-link-list a{display:inline-flex;align-items:center;min-width:24px;min-height:1.85rem;font-size:.875rem;line-height:1.45;color:rgba(255,255,255,.88)}
+    @media(max-width:767px){html[data-init-view="search"] .footer-link-list a{min-height:44px}}
+    html[data-init-view="search"] .footer-socials{display:flex;flex-wrap:wrap;gap:.75rem;min-height:2.75rem}
+    html[data-init-view="search"] .footer-social-btn{width:2.75rem;height:2.75rem;border-radius:50%;background:rgba(255,255,255,.16);color:var(--white);display:inline-flex;align-items:center;justify-content:center}
+    html[data-init-view="search"] .footer-bottom{background:var(--black);padding-block:.5rem;color:rgba(255,255,255,.88)}
+    html[data-init-view="search"] .footer-bottom-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.35rem .55rem}
+    html[data-init-view="search"] .footer-bottom .t-meta{font-size:.75rem;line-height:1.4}
+    html[data-init-view="search"] #footer-year{display:inline-block;min-width:2.5ch}
+    html[data-init-view="search"] .db-link{display:inline-flex;align-items:center;gap:.5rem;min-height:2rem}
+    html[data-init-view="search"] .db-link img{height:2.75rem;width:auto;aspect-ratio:1/1;margin-block:-0.45rem}
   </style>
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/sections.css">
@@ -331,7 +365,7 @@
             <div class="footer-cols">
               <div>
                 <a href="#home" aria-label="سفريتي">
-                  <picture><source media="(max-width: 767px)" type="image/webp" srcset="./mobile/footer-logo-m.webp"><source type="image/webp" srcset="./assets/aistudio/logo_ebd6693e.webp"><img id="footer-logo-img" src="./assets/aistudio/logo_ebd6693e.webp" alt="سفريتي" width="272" height="112" decoding="async" loading="lazy" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)" style="height:3rem;width:auto;margin-bottom:1rem;padding:.45rem .95rem;background:#fff;border-radius:999px;object-fit:contain;"></picture>
+                  <picture><source media="(max-width: 767px)" type="image/webp" srcset="./mobile/footer-logo-m.webp" width="223" height="92"><source type="image/webp" srcset="./assets/aistudio/logo_ebd6693e.webp" width="272" height="112"><img id="footer-logo-img" src="./assets/aistudio/logo_ebd6693e.webp" alt="سفريتي" width="272" height="112" decoding="async" loading="lazy" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)" style="box-sizing:content-box;height:2.1rem;width:auto;aspect-ratio:272/112;margin-bottom:1rem;padding:.45rem .95rem;background:#fff;border-radius:999px;object-fit:contain;"></picture>
                 </a>
                 <p id="footer-blurb" class="t-ui" style="color:rgba(255,255,255,.86);"></p>
               </div>
@@ -368,6 +402,7 @@
           </div>
         </div>
       </footer>
+      <script>if(document.documentElement.dataset.initView==='search'){var fl=document.getElementById('footer-logo-img'),dl=document.getElementById('db-logo-img');if(fl)fl.loading='eager';if(dl)dl.loading='eager';}</script>
     </div>
 
     <aside class="side-rail is-left" aria-label="مساحة إعلانية يسرى">

@@ -145,11 +145,23 @@ function preloadSearchMedia() {
   document.head.appendChild(link);
 }
 
+function ensureSectionsBelowCss() {
+  if (typeof document === 'undefined' || !document.head) return;
+  const href = window.__SAFARYTI_BELOW_CSS__;
+  if (!href || document.head.querySelector('link[data-sections-below-link]')) return;
+  const link = document.createElement('link');
+  link.setAttribute('data-sections-below-link', '1');
+  link.rel = 'stylesheet';
+  link.href = href;
+  document.head.appendChild(link);
+}
+
 export function prefetchRouteByHash(href) {
   if (!href) return;
   const route = parseHash(href);
   if (route.view === 'contact') preloadContactMedia(false);
   else if (route.view === 'search') preloadSearchMedia();
+  if (route.view !== 'search') ensureSectionsBelowCss();
   const loader = isTipsHubRoute(route) ? ROUTE_LOADERS.tips : ROUTE_LOADERS[route.view];
   if (loader) {
     loader().catch(() => {});
@@ -232,6 +244,7 @@ export function renderRoute(isInitial) {
   const route = parseHash();
   if (route.view === 'contact') preloadContactMedia(true);
   else if (route.view === 'search') preloadSearchMedia();
+  if (route.view !== 'search') ensureSectionsBelowCss();
   setState({ currentView: route.view, route, activeSceneIndex: -1 });
   clearTimeout(routeTimer);
 
