@@ -1,0 +1,15 @@
+### Result
+[{"type":"document","url":"/"},{"type":"font","url":"/assets/cairo-arabic-CJWMIGCx.woff2"},{"type":"font","url":"/assets/cairo-latin-PfPtmrPZ.woff2"},{"type":"image","url":"/assets/hero_suez_canal_1794996466961-800w-DnCULOVx.webp"},{"type":"stylesheet","url":"/assets/sections-below-Bzzs1K1J.css"},{"type":"script","url":"/assets/index-BExCuNHn.js"},{"type":"script","url":"/assets/coreFormatters-DaNnHV28.js"},{"type":"script","url":"/assets/home-DrY2mm0c.js"},{"type":"script","url":"/assets/utils-NS62lw6A.js"},{"type":"script","url":"/assets/adSlots-DCroZAny.js"},{"type":"image","url":"/assets/logo_ebd6693e-CeSrUbEg.webp"},{"type":"image","url":"/assets/redsea-resort-BmdkIFfq.webp"},{"type":"image","url":"/assets/oasis-lodge-RTPusLOn.webp"},{"type":"image","url":"/assets/digitalbond-card-CJxGnOp6.svg"},{"type":"script","url":"/assets/bootstrapSecondary-0lyn0L2t.js"},{"type":"script","url":"/assets/scrollController-AAqfF_hW.js"},{"type":"image","url":"/assets/about_warm_clouds_1795352383366-CzauqBUz.webp"},{"type":"script","url":"/assets/homeBelowFold-D7JfHfDU.js"},{"type":"script","url":"/assets/viewHelpers-BzO0l5oI.js"},{"type":"script","url":"/assets/sharedAside-BhrCrprs.js"},{"type":"image","url":"/partners/fourseasons-tall.svg"},{"type":"image","url":"/partners/digitalbond-card.svg"}]
+### Ran Playwright code
+```js
+await (async page => {
+    const p = await page.context().newPage();
+    await p.setViewportSize({ width: 1440, height: 900 });
+    const reqs = [];
+    p.on('request', r => reqs.push({ type: r.resourceType(), url: r.url().replace('http://127.0.0.1:4189', '') }));
+    await p.goto('http://127.0.0.1:4189/#home', { waitUntil: 'load' });
+    await p.waitForTimeout(2000);
+    await p.close();
+    return reqs;
+  })(page);
+```

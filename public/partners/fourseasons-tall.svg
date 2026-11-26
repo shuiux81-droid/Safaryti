@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="600" viewBox="0 0 160 600" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="rBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#222222"/>
+      <stop offset="14%" stop-color="#222222"/>
+      <stop offset="55%" stop-color="#3B241E"/>
+      <stop offset="86%" stop-color="#1E1B18"/>
+      <stop offset="100%" stop-color="#1E1B18"/>
+    </linearGradient>
+  </defs>
+  <rect width="160" height="600" fill="url(#rBg)"/>
+  <rect x="10" y="14" width="140" height="572" rx="10" fill="none" stroke="rgba(218,184,126,0.42)" stroke-width="1.2"/>
+  <line x1="48" y1="74" x2="112" y2="74" stroke="rgba(218,184,126,0.45)" stroke-width="1"/>
+  <text x="80" y="108" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="13.5" font-weight="700" fill="#DAB87E">FOUR SEASONS</text>
+  <text x="80" y="130" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="10.5" font-weight="600" fill="#E6DED5">BALTIMORE</text>
+  <line x1="56" y1="148" x2="104" y2="148" stroke="rgba(218,184,126,0.35)" stroke-width="1"/>
+  <text x="80" y="216" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">إقامة استثنائية</text>
+  <text x="80" y="246" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="14" font-weight="600" fill="#FDECE8">على شواطئ مصر</text>
+  <text x="80" y="318" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="12.5" fill="#E6DED5">منتجعات فاخرة</text>
+  <text x="80" y="344" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="12.5" fill="#E6DED5">وتجارب ضيافة</text>
+  <text x="80" y="370" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="12.5" fill="#E6DED5">لا تُنسى</text>
+  <rect x="22" y="440" width="116" height="40" rx="20" fill="#C22A10"/>
+  <text x="80" y="465" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">احجز الآن</text>
+</svg>

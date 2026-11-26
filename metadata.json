@@ -1,0 +1,8 @@
+{
+  "name": "سفريتي | Safaryti",
+  "description": "دليلك الشامل لكل ما يخص السفر: وجهات سياحية، نصائح، أنشطة وأدلة تغطي مختلف الدول والقارات.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="970" height="250" viewBox="0 0 970 250" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sbBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E1B18"/>
+      <stop offset="55%" stop-color="#4A2018"/>
+      <stop offset="100%" stop-color="#222222"/>
+    </linearGradient>
+    <radialGradient id="sbGlow" cx="22%" cy="50%" r="48%">
+      <stop offset="0%" stop-color="#E93314" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#E93314" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="970" height="250" fill="url(#sbBg)"/>
+  <rect width="970" height="250" fill="url(#sbGlow)"/>
+  <rect x="18" y="18" width="934" height="214" rx="14" fill="none" stroke="rgba(218,184,126,0.34)" stroke-width="1.2"/>
+  <circle cx="148" cy="125" r="72" fill="none" stroke="rgba(218,184,126,0.22)" stroke-width="1" stroke-dasharray="4 6"/>
+  <circle cx="148" cy="125" r="48" fill="rgba(233,51,20,0.16)" stroke="rgba(218,184,126,0.45)" stroke-width="1"/>
+  <path d="M168 125 L134 111 L142 125 L134 139 Z" fill="#FFFFFF"/>
+  <text x="916" y="72" text-anchor="end" font-family="Cairo,Tahoma,sans-serif" font-size="14" font-weight="700" fill="#DAB87E" letter-spacing="1.4">SAFARYTI PARTNERS • عروض الطيران والإقامة الموسمية</text>
+  <text x="916" y="124" text-anchor="end" font-family="Cairo,Tahoma,sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">خطط لرحلتك القادمة بباقات حصرية حول العالم</text>
+  <text x="916" y="160" text-anchor="end" font-family="Cairo,Tahoma,sans-serif" font-size="17" fill="#F3E5DF">فنادق مختارة وتجارب سفر استثنائية مع إلغاء مرن وخدمة على مدار الساعة</text>
+  <rect x="746" y="176" width="170" height="42" rx="21" fill="#C22A10"/>
+  <text x="831" y="202" text-anchor="middle" font-family="Cairo,Tahoma,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">اكتشف العروض الآن</text>
+</svg>

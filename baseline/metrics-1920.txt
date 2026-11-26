@@ -1,0 +1,40 @@
+### Result
+"{\"home\":7370,\"all-stories\":2765,\"category\":2753,\"article\":6722,\"about\":3132,\"contact\":1641,\"privacy\":4837,\"discover\":1432,\"culture\":1820}"
+### Ran Playwright code
+```js
+await (async (page) => {
+  const routes = [
+    { key: "home", hash: "#home" },
+    { key: "all-stories", hash: "#all-stories" },
+    { key: "category", hash: "#category/africa" },
+    { key: "article", hash: "#article/suez-landmarks" },
+    { key: "about", hash: "#about" },
+    { key: "contact", hash: "#contact" },
+    { key: "privacy", hash: "#privacy" },
+    { key: "discover", hash: "#discover" },
+    { key: "culture", hash: "#culture" }
+  ];
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  const heights = {};
+  for (const r of routes) {
+    await page.goto("about:blank");
+    await page.goto("http://127.0.0.1:4173/" + r.hash, { waitUntil: "load", timeout: 20000 });
+    await page.evaluate(async () => {
+      if (document.fonts && document.fonts.ready) await Promise.race([document.fonts.ready, new Promise(res => setTimeout(res, 3000))]);
+      const imgs = Array.from(document.querySelectorAll("img"));
+      await Promise.all(imgs.map((img) => {
+        if (img.loading === "lazy") img.loading = "eager";
+        if (img.complete) return Promise.resolve();
+        return new Promise((res) => { img.addEventListener("load", res, { once: true }); img.addEventListener("error", res, { once: true }); setTimeout(res, 2000); });
+      }));
+    });
+    await page.waitForTimeout(800);
+    heights[r.key] = await page.evaluate(() => document.documentElement.scrollHeight);
+    await page.screenshot({ path: "baseline/" + r.key + "-1920.png", fullPage: true, timeout: 30000 });
+  }
+  return JSON.stringify(heights);
+})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:4173/#culture
+- Page Title: ثقافات وتجارب | سفريتي

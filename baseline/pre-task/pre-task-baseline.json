@@ -1,0 +1,1895 @@
+{
+  "heights": {
+    "390": {
+      "home": {
+        "scrollHeight": 10700,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "SECTION",
+            "id": "hero-band",
+            "h": 1096
+          },
+          {
+            "tag": "SECTION",
+            "id": "expand-wrapper",
+            "h": 458
+          },
+          {
+            "tag": "SECTION",
+            "id": "regions-section",
+            "h": 2210
+          },
+          {
+            "tag": "SECTION",
+            "id": "mobile-search-section",
+            "h": 62
+          },
+          {
+            "tag": "SECTION",
+            "id": "latest-section",
+            "h": 654
+          },
+          {
+            "tag": "SECTION",
+            "id": "picks-section",
+            "h": 3045
+          },
+          {
+            "tag": "SECTION",
+            "id": "discover-section",
+            "h": 879
+          },
+          {
+            "tag": "SECTION",
+            "id": "facts-section",
+            "h": 633
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "about": {
+        "scrollHeight": 4207,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-hero-band",
+            "h": 358
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-scatter-wrapper",
+            "h": 217
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-story-section",
+            "h": 2383
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "category": {
+        "scrollHeight": 4727,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "article": {
+        "scrollHeight": 8801,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "HEADER",
+            "id": "article-hero-card",
+            "h": 352
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "contact": {
+        "scrollHeight": 2958,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "privacy": {
+        "scrollHeight": 6136,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-1",
+            "h": 238
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-2",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-3",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-4",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-5",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-6",
+            "h": 242
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-7",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-8",
+            "h": 211
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-9",
+            "h": 177
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-10",
+            "h": 177
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-11",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-12",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-13",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-14",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-15",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-16",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-17",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-18",
+            "h": 211
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-19",
+            "h": 208
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-20",
+            "h": 242
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-21",
+            "h": 208
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "discover": {
+        "scrollHeight": 2060,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "SECTION",
+            "id": "discover-hero-split",
+            "h": 436
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "culture": {
+        "scrollHeight": 2657,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      },
+      "all-stories": {
+        "scrollHeight": 4823,
+        "scrollWidth": 390,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 44
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 1249
+          }
+        ]
+      }
+    },
+    "768": {
+      "home": {
+        "scrollHeight": 8695,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "SECTION",
+            "id": "hero-band",
+            "h": 1058
+          },
+          {
+            "tag": "SECTION",
+            "id": "expand-wrapper",
+            "h": 473
+          },
+          {
+            "tag": "SECTION",
+            "id": "regions-section",
+            "h": 2079
+          },
+          {
+            "tag": "SECTION",
+            "id": "mobile-search-section",
+            "h": 58
+          },
+          {
+            "tag": "SECTION",
+            "id": "latest-section",
+            "h": 875
+          },
+          {
+            "tag": "SECTION",
+            "id": "picks-section",
+            "h": 1544
+          },
+          {
+            "tag": "SECTION",
+            "id": "discover-section",
+            "h": 900
+          },
+          {
+            "tag": "SECTION",
+            "id": "facts-section",
+            "h": 615
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "about": {
+        "scrollHeight": 3349,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-hero-band",
+            "h": 342
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-scatter-wrapper",
+            "h": 165
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-story-section",
+            "h": 2152
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "category": {
+        "scrollHeight": 3790,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "article": {
+        "scrollHeight": 8105,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "HEADER",
+            "id": "article-hero-card",
+            "h": 315
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "contact": {
+        "scrollHeight": 2310,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "privacy": {
+        "scrollHeight": 4786,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-1",
+            "h": 200
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-2",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-3",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-4",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-5",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-6",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-7",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-8",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-9",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-10",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-11",
+            "h": 200
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-12",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-13",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-14",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-15",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-16",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-17",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-18",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-19",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-20",
+            "h": 170
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-21",
+            "h": 170
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "discover": {
+        "scrollHeight": 1468,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "SECTION",
+            "id": "discover-hero-split",
+            "h": 409
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "culture": {
+        "scrollHeight": 2053,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      },
+      "all-stories": {
+        "scrollHeight": 3885,
+        "scrollWidth": 768,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 43
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 690
+          }
+        ]
+      }
+    },
+    "1440": {
+      "home": {
+        "scrollHeight": 6448,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "SECTION",
+            "id": "hero-band",
+            "h": 640
+          },
+          {
+            "tag": "SECTION",
+            "id": "expand-wrapper",
+            "h": 504
+          },
+          {
+            "tag": "SECTION",
+            "id": "regions-section",
+            "h": 2435
+          },
+          {
+            "tag": "SECTION",
+            "id": "latest-section",
+            "h": 397
+          },
+          {
+            "tag": "SECTION",
+            "id": "picks-section",
+            "h": 1853
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "about": {
+        "scrollHeight": 2783,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-hero-band",
+            "h": 259
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-scatter-wrapper",
+            "h": 1109
+          },
+          {
+            "tag": "SECTION",
+            "id": "about-story-section",
+            "h": 955
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "category": {
+        "scrollHeight": 2485,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "article": {
+        "scrollHeight": 6089,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "HEADER",
+            "id": "article-hero-card",
+            "h": 336
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "contact": {
+        "scrollHeight": 1469,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "privacy": {
+        "scrollHeight": 3730,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-1",
+            "h": 166
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-2",
+            "h": 166
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-3",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-4",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-5",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-6",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-7",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-8",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-9",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-10",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-11",
+            "h": 166
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-12",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-13",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-14",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-15",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-16",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-17",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-18",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-19",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-20",
+            "h": 133
+          },
+          {
+            "tag": "SECTION",
+            "id": "priv-21",
+            "h": 133
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "discover": {
+        "scrollHeight": 1283,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "SECTION",
+            "id": "discover-hero-split",
+            "h": 552
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "culture": {
+        "scrollHeight": 1655,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      },
+      "all-stories": {
+        "scrollHeight": 2485,
+        "scrollWidth": 1440,
+        "secs": [
+          {
+            "tag": "HEADER",
+            "id": "site-header",
+            "h": 46
+          },
+          {
+            "tag": "FOOTER",
+            "id": "site-footer",
+            "h": 460
+          }
+        ]
+      }
+    }
+  },
+  "desktopHomeRequests": [
+    {
+      "type": "font",
+      "url": "./assets/cairo-arabic-CJWMIGCx.woff2",
+      "status": 200,
+      "size": 30896
+    },
+    {
+      "type": "document",
+      "url": "./",
+      "status": 200,
+      "size": 72563
+    },
+    {
+      "type": "image",
+      "url": "./assets/hero_suez_canal_1794996466961-800w-DnCULOVx.webp",
+      "status": 200,
+      "size": 47170
+    },
+    {
+      "type": "stylesheet",
+      "url": "./assets/sections-below-Bzzs1K1J.css",
+      "status": 200,
+      "size": 54384
+    },
+    {
+      "type": "script",
+      "url": "./assets/coreFormatters-DaNnHV28.js",
+      "status": 200,
+      "size": 910
+    },
+    {
+      "type": "font",
+      "url": "./assets/cairo-latin-PfPtmrPZ.woff2",
+      "status": 200,
+      "size": 33820
+    },
+    {
+      "type": "image",
+      "url": "./assets/logo_ebd6693e-CeSrUbEg.webp",
+      "status": 200,
+      "size": 5570
+    },
+    {
+      "type": "image",
+      "url": "./assets/oasis-lodge-RTPusLOn.webp",
+      "status": 200,
+      "size": 49288
+    },
+    {
+      "type": "image",
+      "url": "./assets/redsea-resort-BmdkIFfq.webp",
+      "status": 200,
+      "size": 67732
+    },
+    {
+      "type": "image",
+      "url": "./assets/digitalbond-card-CJxGnOp6.svg",
+      "status": 200,
+      "size": 1244
+    },
+    {
+      "type": "script",
+      "url": "./assets/home-DrY2mm0c.js",
+      "status": 200,
+      "size": 8953
+    },
+    {
+      "type": "script",
+      "url": "./assets/adSlots-DCroZAny.js",
+      "status": 200,
+      "size": 3135
+    },
+    {
+      "type": "script",
+      "url": "./assets/index-BExCuNHn.js",
+      "status": 200,
+      "size": 12306
+    },
+    {
+      "type": "script",
+      "url": "./assets/utils-NS62lw6A.js",
+      "status": 200,
+      "size": 34984
+    },
+    {
+      "type": "image",
+      "url": "./assets/about_warm_clouds_1795352383366-CzauqBUz.webp",
+      "status": 200,
+      "size": 57604
+    },
+    {
+      "type": "image",
+      "url": "./assets/1111_f9de6c5d-rokFjzCy.webp",
+      "status": 200,
+      "size": 2524
+    },
+    {
+      "type": "script",
+      "url": "./assets/bootstrapSecondary-0lyn0L2t.js",
+      "status": 200,
+      "size": 12498
+    },
+    {
+      "type": "script",
+      "url": "./assets/scrollController-AAqfF_hW.js",
+      "status": 200,
+      "size": 5932
+    },
+    {
+      "type": "script",
+      "url": "./assets/viewHelpers-BzO0l5oI.js",
+      "status": 200,
+      "size": 10786
+    },
+    {
+      "type": "image",
+      "url": "./partners/fourseasons-tall.svg",
+      "status": 200,
+      "size": 2114
+    },
+    {
+      "type": "image",
+      "url": "./partners/digitalbond-card.svg",
+      "status": 200,
+      "size": 1244
+    },
+    {
+      "type": "script",
+      "url": "./assets/homeBelowFold-D7JfHfDU.js",
+      "status": 200,
+      "size": 21259
+    },
+    {
+      "type": "script",
+      "url": "./assets/sharedAside-BhrCrprs.js",
+      "status": 200,
+      "size": 14802
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/about_temple_pillars_1794996471329-760w.webp",
+      "status": 200,
+      "size": 150252
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/hero_marsa_alam_1794996468348-800w.webp",
+      "status": 200,
+      "size": 81270
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/hero_suez_canal_1794996466961-240w.webp",
+      "status": 200,
+      "size": 5450
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/about_temple_pillars_1794996471329-240w.webp",
+      "status": 200,
+      "size": 16718
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/expand_horizon_road_1794996468234-1120w.webp",
+      "status": 200,
+      "size": 101826
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/region_asia_landscape_1794996469512-1120w.webp",
+      "status": 200,
+      "size": 72098
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/hero_taba_citadel_1794996468396-240w.webp",
+      "status": 200,
+      "size": 7914
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/hero_marsa_alam_1794996468348-240w.webp",
+      "status": 200,
+      "size": 9072
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/region_oceania_coast_1794996470039-1120w.webp",
+      "status": 200,
+      "size": 109314
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/region_americas_canyon_1794996470001-1120w.webp",
+      "status": 200,
+      "size": 120576
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/region_south_america_andes_1794996469994-1120w.webp",
+      "status": 200,
+      "size": 113740
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/hero_suez_canal_1794996466961-1120w.webp",
+      "status": 200,
+      "size": 75092
+    },
+    {
+      "type": "image",
+      "url": "./src/assets/images/region_europe_alpine_1794996469940-1120w.webp",
+      "status": 200,
+      "size": 105896
+    },
+    {
+      "type": "image",
+      "url": "./partners/marriott-card.svg",
+      "status": 200,
+      "size": 1223
+    }
+  ],
+  "mobileHomeRequests": [
+    {
+      "type": "font",
+      "url": "./assets/cairo-arabic-CJWMIGCx.woff2",
+      "status": 200,
+      "size": 30896
+    },
+    {
+      "type": "stylesheet",
+      "url": "./assets/sections-below-Bzzs1K1J.css",
+      "status": 200,
+      "size": 54384
+    },
+    {
+      "type": "image",
+      "url": "./assets/hero-suez-m-YCKVkGmG.webp",
+      "status": 200,
+      "size": 24136
+    },
+    {
+      "type": "document",
+      "url": "./",
+      "status": 200,
+      "size": 72563
+    },
+    {
+      "type": "font",
+      "url": "./assets/cairo-latin-PfPtmrPZ.woff2",
+      "status": 200,
+      "size": 33820
+    },
+    {
+      "type": "image",
+      "url": "./assets/oasis-lodge-m-D4sqAaFm.webp",
+      "status": 200,
+      "size": 13514
+    },
+    {
+      "type": "image",
+      "url": "./assets/logo-m-IMhN80nL.webp",
+      "status": 200,
+      "size": 2234
+    },
+    {
+      "type": "image",
+      "url": "./assets/redsea-resort-m-B2yOXKh2.webp",
+      "status": 200,
+      "size": 12626
+    },
+    {
+      "type": "image",
+      "url": "./assets/digitalbond-card-CJxGnOp6.svg",
+      "status": 200,
+      "size": 1244
+    },
+    {
+      "type": "script",
+      "url": "./assets/coreFormatters-DaNnHV28.js",
+      "status": 200,
+      "size": 910
+    },
+    {
+      "type": "script",
+      "url": "./assets/home-DrY2mm0c.js",
+      "status": 200,
+      "size": 8953
+    },
+    {
+      "type": "script",
+      "url": "./assets/index-BExCuNHn.js",
+      "status": 200,
+      "size": 12306
+    },
+    {
+      "type": "script",
+      "url": "./assets/adSlots-DCroZAny.js",
+      "status": 200,
+      "size": 3135
+    },
+    {
+      "type": "script",
+      "url": "./assets/utils-NS62lw6A.js",
+      "status": 200,
+      "size": 34984
+    },
+    {
+      "type": "script",
+      "url": "./assets/scrollController-AAqfF_hW.js",
+      "status": 200,
+      "size": 5932
+    },
+    {
+      "type": "script",
+      "url": "./assets/bootstrapSecondary-0lyn0L2t.js",
+      "status": 200,
+      "size": 12498
+    },
+    {
+      "type": "script",
+      "url": "./assets/homeBelowFold-D7JfHfDU.js",
+      "status": 200,
+      "size": 21259
+    },
+    {
+      "type": "script",
+      "url": "./assets/viewHelpers-BzO0l5oI.js",
+      "status": 200,
+      "size": 10786
+    },
+    {
+      "type": "script",
+      "url": "./assets/sharedAside-BhrCrprs.js",
+      "status": 200,
+      "size": 14802
+    },
+    {
+      "type": "image",
+      "url": "./partners/digitalbond-card.svg",
+      "status": 200,
+      "size": 1244
+    }
+  ],
+  "mobileHomeImages": [
+    {
+      "src": "http://127.0.0.1:4173/assets/logo-m-IMhN80nL.webp",
+      "dispW": 62,
+      "dispH": 26,
+      "natW": 124,
+      "natH": 51,
+      "loading": "eager",
+      "top": 21
+    },
+    {
+      "src": "http://127.0.0.1:4173/assets/hero-suez-m-YCKVkGmG.webp",
+      "dispW": 367,
+      "dispH": 493,
+      "natW": 380,
+      "natH": 212,
+      "loading": "eager",
+      "top": 82
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 358,
+      "dispH": 480,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 88
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 358,
+      "dispH": 480,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 88
+    },
+    {
+      "src": "http://127.0.0.1:4173/assets/redsea-resort-m-B2yOXKh2.webp",
+      "dispW": 300,
+      "dispH": 150,
+      "natW": 320,
+      "natH": 239,
+      "loading": "eager",
+      "top": 610
+    },
+    {
+      "src": "http://127.0.0.1:4173/assets/oasis-lodge-m-D4sqAaFm.webp",
+      "dispW": 300,
+      "dispH": 250,
+      "natW": 380,
+      "natH": 284,
+      "loading": "eager",
+      "top": 806
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 390,
+      "dispH": 458,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 1096
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 1668
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 2020
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 2372
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 2724
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 3076
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 3428
+    },
+    {
+      "src": "./src/assets/images/hero_suez_canal_1794996466961.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 4014
+    },
+    {
+      "src": "./src/assets/images/about_temple_pillars_1794996471329.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 4014
+    },
+    {
+      "src": "./src/assets/images/hero_marsa_alam_1794996468348.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 4259
+    },
+    {
+      "src": "./src/assets/images/hero_taba_citadel_1794996468396.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 4259
+    },
+    {
+      "src": "./src/assets/images/region_americas_canyon_1794996470001.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "./src/assets/images/about_temple_pillars_1794996471329.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 4930
+    },
+    {
+      "src": "./src/assets/images/region_americas_canyon_1794996470001.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 5383
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/about_temple_pillars_1794996471329.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 5691
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_oceania_coast_1794996470039.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 5998
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_oceania_coast_1794996470039.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6306
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_south_america_andes_1794996469994.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6614
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_americas_canyon_1794996470001.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6922
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_europe_alpine_1794996469940.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 7230
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_asia_landscape_1794996469512.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 7538
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_americas_canyon_1794996470001.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 5929
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/about_temple_pillars_1794996471329.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6045
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_europe_alpine_1794996469940.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6161
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/hero_marsa_alam_1794996468348.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6277
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./src/assets/images/region_asia_landscape_1794996469512.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6393
+    },
+    {
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "eager",
+      "top": 0
+    },
+    {
+      "src": "./partners/hilton-card.svg",
+      "dispW": 298,
+      "dispH": 248,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 6827
+    },
+    {
+      "src": "./src/assets/images/fact_giza_pyramids_1794996471282.webp",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 7230
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 7230
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 7230
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 7230
+    },
+    {
+      "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 1,
+      "natH": 1,
+      "loading": "lazy",
+      "top": 7230
+    },
+    {
+      "src": "./assets/logo_ebd6693e-CeSrUbEg.webp",
+      "dispW": 112,
+      "dispH": 48,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 8200
+    },
+    {
+      "src": "./assets/1111_f9de6c5d-rokFjzCy.webp",
+      "dispW": 44,
+      "dispH": 44,
+      "natW": 0,
+      "natH": 0,
+      "loading": "lazy",
+      "top": 8943
+    },
+    {
+      "src": "http://127.0.0.1:4173/partners/digitalbond-card.svg",
+      "dispW": 248,
+      "dispH": 206,
+      "natW": 300,
+      "natH": 250,
+      "loading": "eager",
+      "top": 637
+    }
+  ],
+  "traceSummary": {
+    "marks": [
+      {
+        "ev": "initScript",
+        "t": 0
+      },
+      {
+        "ev": "longtask:self",
+        "t": 345,
+        "dur": 186
+      },
+      {
+        "ev": "DOMContentLoaded",
+        "t": 649
+      },
+      {
+        "ev": "longtask:self",
+        "t": 559,
+        "dur": 96
+      },
+      {
+        "ev": "paint:first-paint",
+        "t": 548,
+        "dur": 0
+      },
+      {
+        "ev": "paint:first-contentful-paint",
+        "t": 548,
+        "dur": 0
+      },
+      {
+        "ev": "largest-contentful-paint:",
+        "t": 548,
+        "dur": 0
+      },
+      {
+        "ev": "html:js-ready",
+        "t": 941
+      },
+      {
+        "ev": "slide0:is-decoded",
+        "t": 1021
+      },
+      {
+        "ev": "largest-contentful-paint:",
+        "t": 916,
+        "dur": 0
+      },
+      {
+        "ev": "window:load",
+        "t": 1446
+      },
+      {
+        "ev": "longtask:self",
+        "t": 1452,
+        "dur": 51
+      }
+    ],
+    "h1Opacity": "1",
+    "slide0Classes": "hero-slide is-active is-decoded"
+  }
+}

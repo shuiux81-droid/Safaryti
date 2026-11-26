@@ -1,0 +1,71 @@
+### Result
+"{\"heights\":{\"home\":7370,\"all-stories\":2765,\"category\":2753,\"article\":6722,\"about\":3132,\"contact\":1641,\"privacy\":4837,\"discover\":1432,\"culture\":1820},\"homeSections\":{\"hero-band\":660,\"expand-wrapper\":567,\"regions-wrapper\":2808,\"latest-section\":447,\"picks-section\":2085,\"home-desktop-aside\":2081,\"site-footer\":518},\"homeTransferBytes\":1491050,\"homeImgCount\":22,\"errors\":[]}"
+### Ran Playwright code
+```js
+await (async (page) => {
+    const routes = [
+      { key: 'home', hash: '#home' },
+      { key: 'all-stories', hash: '#all-stories' },
+      { key: 'category', hash: '#category/africa' },
+      { key: 'article', hash: '#article/suez-landmarks' },
+      { key: 'about', hash: '#about' },
+      { key: 'contact', hash: '#contact' },
+      { key: 'privacy', hash: '#privacy' },
+      { key: 'discover', hash: '#discover' },
+      { key: 'culture', hash: '#culture' }
+    ];
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    const out = { heights: {}, homeSections: {}, homeTransferBytes: 0, homeImgCount: 0, errors: [] };
+    for (const r of routes) {
+      let bytes = 0; let imgsReq = 0;
+      const onRes = async (res) => {
+        if (r.key !== 'home') return;
+        try {
+          const u = res.url();
+          if (!u.startsWith('http://127.0.0.1:4173/')) return;
+          const b = await res.body().catch(() => null);
+          if (b) {
+            bytes += b.length;
+            if (/\.(webp|jpe?g|png|svg|woff2)(\?|$)/i.test(u)) imgsReq++;
+          }
+        } catch(_) {}
+      };
+      const onErr = (err) => out.errors.push(r.key + ': ' + err.message);
+      if (r.key === 'home') page.on('response', onRes);
+      page.on('pageerror', onErr);
+      await page.goto('about:blank');
+      await page.goto('http://127.0.0.1:4173/' + r.hash, { waitUntil: 'load', timeout: 25000 });
+      await page.evaluate(async () => {
+        if (document.fonts && document.fonts.ready) await Promise.race([document.fonts.ready, new Promise(res => setTimeout(res, 3000))]);
+        const imgs = Array.from(document.querySelectorAll('img'));
+        await Promise.all(imgs.map((img) => {
+          if (img.loading === 'lazy') img.loading = 'eager';
+          if (img.complete) return Promise.resolve();
+          return new Promise((res) => { img.addEventListener('load', res, { once: true }); img.addEventListener('error', res, { once: true }); setTimeout(res, 2500); });
+        }));
+      });
+      await page.waitForTimeout(800);
+      if (r.key === 'home') {
+        out.homeTransferBytes = bytes;
+        out.homeImgCount = imgsReq;
+        page.off('response', onRes);
+      }
+      page.off('pageerror', onErr);
+      const info = await page.evaluate((rKey) => {
+        const docH = document.documentElement.scrollHeight;
+        const sections = {};
+        if (rKey === 'home') {
+          ['hero-band','expand-wrapper','regions-wrapper','latest-section','picks-section','home-desktop-aside','site-footer'].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) sections[id] = Math.round(el.getBoundingClientRect().height);
+          });
+        }
+        return { docH, sections };
+      }, r.key);
+      out.heights[r.key] = info.docH;
+      if (r.key === 'home') out.homeSections = info.sections;
+      await page.screenshot({ path: 'after-step1/' + r.key + '-1920.png', fullPage: true, timeout: 30000 });
+    }
+    return JSON.stringify(out);
+  })(page);
+```

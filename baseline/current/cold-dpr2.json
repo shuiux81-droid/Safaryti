@@ -1,0 +1,726 @@
+{
+  "initialReqs": [
+    {
+      "type": "document",
+      "url": "/"
+    },
+    {
+      "type": "font",
+      "url": "/fonts/cairo-arabic.woff2"
+    },
+    {
+      "type": "font",
+      "url": "/fonts/cairo-latin.woff2"
+    },
+    {
+      "type": "image",
+      "url": "/mobile/hero-suez-m.webp"
+    },
+    {
+      "type": "script",
+      "url": "/assets/index-BKdfYl2q.js"
+    },
+    {
+      "type": "image",
+      "url": "/assets/aistudio/logo_ebd6693e.webp"
+    },
+    {
+      "type": "image",
+      "url": "/mobile/redsea-resort-m.webp"
+    },
+    {
+      "type": "image",
+      "url": "/mobile/oasis-lodge-m.webp"
+    },
+    {
+      "type": "image",
+      "url": "/partners/digitalbond-card.svg"
+    },
+    {
+      "type": "script",
+      "url": "/assets/home-BZ8hK6c-.js"
+    },
+    {
+      "type": "script",
+      "url": "/assets/sharedAside-BOrS3xDs.js"
+    },
+    {
+      "type": "image",
+      "url": "/mobile/expand-road-m.webp"
+    }
+  ],
+  "allReqsCount": 32,
+  "imgs": [
+    {
+      "id": "header-logo-img",
+      "cls": "",
+      "src": "/assets/aistudio/logo_ebd6693e.webp",
+      "dispW": 62,
+      "dispH": 26,
+      "natW": 272,
+      "natH": 112,
+      "loading": "auto",
+      "top": 21
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/mobile/hero-suez-m.webp",
+      "dispW": 358,
+      "dispH": 480,
+      "natW": 560,
+      "natH": 313,
+      "loading": "auto",
+      "top": 88
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/about_temple_pillars_1794996471329.webp",
+      "dispW": 371,
+      "dispH": 497,
+      "natW": 389,
+      "natH": 522,
+      "loading": "auto",
+      "top": 80
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/hero_marsa_alam_1794996468348-800w.webp",
+      "dispW": 358,
+      "dispH": 480,
+      "natW": 390,
+      "natH": 217,
+      "loading": "auto",
+      "top": 88
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/mobile/redsea-resort-m.webp",
+      "dispW": 300,
+      "dispH": 150,
+      "natW": 320,
+      "natH": 239,
+      "loading": "auto",
+      "top": 610
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/mobile/oasis-lodge-m.webp",
+      "dispW": 300,
+      "dispH": 250,
+      "natW": 380,
+      "natH": 284,
+      "loading": "auto",
+      "top": 806
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/mobile/expand-road-m.webp",
+      "dispW": 390,
+      "dispH": 458,
+      "natW": 419,
+      "natH": 234,
+      "loading": "lazy",
+      "top": 1096
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_asia_landscape_1794996469512-800w.webp",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 390,
+      "natH": 217,
+      "loading": "lazy",
+      "top": 1636
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/mobile/hero-suez-m.webp",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 560,
+      "natH": 313,
+      "loading": "lazy",
+      "top": 1988
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_europe_alpine_1794996469940-800w.webp",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 390,
+      "natH": 217,
+      "loading": "lazy",
+      "top": 2340
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_americas_canyon_1794996470001-800w.webp",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 390,
+      "natH": 217,
+      "loading": "lazy",
+      "top": 2692
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_south_america_andes_1794996469994-800w.webp",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 390,
+      "natH": 217,
+      "loading": "lazy",
+      "top": 3044
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_oceania_coast_1794996470039-800w.webp",
+      "dispW": 390,
+      "dispH": 336,
+      "natW": 390,
+      "natH": 217,
+      "loading": "lazy",
+      "top": 3396
+    },
+    {
+      "id": null,
+      "cls": "latest-card-img",
+      "src": "/mobile/hero-suez-m.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 560,
+      "natH": 313,
+      "loading": "lazy",
+      "top": 4014
+    },
+    {
+      "id": null,
+      "cls": "latest-card-img",
+      "src": "/src/assets/images/about_temple_pillars_1794996471329-760w.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 351,
+      "natH": 470,
+      "loading": "lazy",
+      "top": 4014
+    },
+    {
+      "id": null,
+      "cls": "latest-card-img",
+      "src": "/src/assets/images/hero_marsa_alam_1794996468348-800w.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 4259
+    },
+    {
+      "id": null,
+      "cls": "latest-card-img",
+      "src": "/src/assets/images/hero_taba_citadel_1794996468396-800w.webp",
+      "dispW": 153,
+      "dispH": 233,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 4259
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/region_americas_canyon_1794996470001-800w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 174,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/about_temple_pillars_1794996471329-640w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 417,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/region_oceania_coast_1794996470039-800w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 174,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/region_oceania_coast_1794996470039-800w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 174,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/region_south_america_andes_1794996469994-800w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 174,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/region_americas_canyon_1794996470001-800w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 174,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/region_europe_alpine_1794996469940-800w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 174,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/src/assets/images/region_asia_landscape_1794996469512-800w.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 312,
+      "natH": 174,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "picks-cf-img",
+      "src": "/mobile/hero-suez-m.webp",
+      "dispW": 272,
+      "dispH": 381,
+      "natW": 560,
+      "natH": 313,
+      "loading": "lazy",
+      "top": 4644
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_americas_canyon_1794996470001-800w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 5065
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/about_temple_pillars_1794996471329-760w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 470,
+      "loading": "lazy",
+      "top": 5373
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_oceania_coast_1794996470039-800w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 5681
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_oceania_coast_1794996470039-800w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 5988
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_south_america_andes_1794996469994-800w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 6296
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_americas_canyon_1794996470001-800w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 6604
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_europe_alpine_1794996469940-800w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 6886
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/src/assets/images/region_asia_landscape_1794996469512-800w.webp",
+      "dispW": 358,
+      "dispH": 201,
+      "natW": 351,
+      "natH": 196,
+      "loading": "lazy",
+      "top": 7194
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "home-aside-card-img",
+      "src": "/src/assets/images/region_americas_canyon_1794996470001-240w.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 120,
+      "natH": 67,
+      "loading": "lazy",
+      "top": 7763
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "home-aside-card-img",
+      "src": "/src/assets/images/about_temple_pillars_1794996471329-240w.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 120,
+      "natH": 160,
+      "loading": "lazy",
+      "top": 7879
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "home-aside-card-img",
+      "src": "/src/assets/images/region_europe_alpine_1794996469940-240w.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 120,
+      "natH": 67,
+      "loading": "lazy",
+      "top": 7995
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "home-aside-card-img",
+      "src": "/src/assets/images/hero_marsa_alam_1794996468348-240w.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 120,
+      "natH": 67,
+      "loading": "lazy",
+      "top": 8111
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "home-aside-card-img",
+      "src": "/src/assets/images/region_asia_landscape_1794996469512-240w.webp",
+      "dispW": 358,
+      "dispH": 104,
+      "natW": 120,
+      "natH": 67,
+      "loading": "lazy",
+      "top": 8227
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'170'%20height%3D'70'%20viewBox%3D'0%200%20170%2070'%3E%3Cdefs%3E%3ClinearGradient%20id%3D'gl'%20x1%3D'0'%20y1%3D'0'%20x2%3D'1'%20y2%3D'1'%3E%3Cstop%20offset%3D'0%25'%20stop-color%3D'%23e93314'%2F%3E%3Cstop%20offset%3D'100%25'%20stop-color%3D'%23ff6f3c'%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D'M118%2014c22-6%2042%204%2044%2021%202%2015-11%2027-29%2027-14%200-26-7-29-17%207%205%2017%207%2026%204%2011-4%2017-14%2014-23-3-8-14-12-26-12z'%20fill%3D'url(%23gl)'%2F%3E%3Cpath%20d%3D'M124%2027l22-8-8%2020-5-7-9-5z'%20fill%3D'%23ffffff'%2F%3E%3Ctext%20x%3D'98'%20y%3D'45'%20text-anchor%3D'end'%20font-family%3D'Cairo%2CTahoma%2CArial%2Csans-serif'%20font-size%3D'30'%20font-weight%3D'700'%20fill%3D'%23ffffff'%3E%D8%B3%D9%81%D8%B1%D9%8A%D8%AA%D9%8A%3C%2Ftext%3E%3C%2Fsvg%3E",
+      "dispW": 0,
+      "dispH": 0,
+      "natW": 170,
+      "natH": 70,
+      "loading": "auto",
+      "top": 0
+    },
+    {
+      "id": null,
+      "cls": "",
+      "src": "/partners/hilton-card.svg",
+      "dispW": 298,
+      "dispH": 248,
+      "natW": 336,
+      "natH": 280,
+      "loading": "lazy",
+      "top": 8512
+    },
+    {
+      "id": null,
+      "cls": "aside-fact-img",
+      "src": "/src/assets/images/fact_giza_pyramids_1794996471282-800w.webp",
+      "dispW": 362,
+      "dispH": 452,
+      "natW": 358,
+      "natH": 267,
+      "loading": "lazy",
+      "top": 8912
+    },
+    {
+      "id": null,
+      "cls": "aside-fact-img",
+      "src": "/src/assets/images/fact_giza_sphinx_1794996471257-800w.webp",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 358,
+      "natH": 267,
+      "loading": "lazy",
+      "top": 8914
+    },
+    {
+      "id": null,
+      "cls": "aside-fact-img",
+      "src": "/src/assets/images/about_temple_pillars_1794996471329-760w.webp",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 358,
+      "natH": 480,
+      "loading": "lazy",
+      "top": 8914
+    },
+    {
+      "id": null,
+      "cls": "aside-fact-img",
+      "src": "/src/assets/images/hero_taba_citadel_1794996468396-800w.webp",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 358,
+      "natH": 200,
+      "loading": "lazy",
+      "top": 8914
+    },
+    {
+      "id": null,
+      "cls": "aside-fact-img",
+      "src": "/mobile/hero-suez-m.webp",
+      "dispW": 358,
+      "dispH": 448,
+      "natW": 560,
+      "natH": 313,
+      "loading": "lazy",
+      "top": 8914
+    },
+    {
+      "id": "footer-logo-img",
+      "cls": "",
+      "src": "/assets/aistudio/logo_ebd6693e.webp",
+      "dispW": 112,
+      "dispH": 48,
+      "natW": 272,
+      "natH": 112,
+      "loading": "lazy",
+      "top": 9490
+    },
+    {
+      "id": "db-logo-img",
+      "cls": "",
+      "src": "/assets/aistudio/1111_f9de6c5d.webp",
+      "dispW": 44,
+      "dispH": 44,
+      "natW": 96,
+      "natH": 96,
+      "loading": "lazy",
+      "top": 10427
+    },
+    {
+      "id": "floating-callout-img",
+      "cls": "",
+      "src": "/partners/digitalbond-card.svg",
+      "dispW": 248,
+      "dispH": 206,
+      "natW": 300,
+      "natH": 250,
+      "loading": "auto",
+      "top": 637
+    }
+  ]
+}

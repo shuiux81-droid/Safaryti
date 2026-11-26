@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:musaferist.com:web:safaryti-guide",
+      "displayName": "سفريتي | دليلك الشامل للسفر حول العالم",
+      "type": "text/markdown",
+      "url": "https://musaferist.com/llms.txt",
+      "representativeQueries": [
+        "معالم السويس السياحية وأفضل الأماكن للعائلات",
+        "أفضل وجهات السفر في إفريقيا وآسيا وأوروبا",
+        "نصائح السفر والمأكولات العالمية والتراث"
+      ]
+    }
+  ]
+}
