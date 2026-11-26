@@ -150,22 +150,47 @@ function preloadHubMedia(view) {
   const hm = window.__SAFARYTI_HUB_MEDIA__;
   if (!hm) return;
   const key = view === 'culture' ? 'c' : view === 'discover' ? 'd' : '';
-  if (!key || document.head.querySelector('link[data-h-pre="' + key + '"]')) return;
-  const isMob = !isTabletOrLargerLocal();
-  const href = key === 'c' ? (isMob ? hm.cmHref : hm.cdHref) : isMob ? hm.dmHref : hm.ddHref;
-  const srcset = key === 'c' ? (isMob ? hm.cm : hm.cd) : isMob ? hm.dm : hm.dd;
-  if (!href) return;
-  const link = document.createElement('link');
-  link.setAttribute('data-h-pre', key);
-  link.rel = 'preload';
-  link.as = 'image';
-  link.type = 'image/webp';
-  link.href = href;
-  if (srcset) link.setAttribute('imagesrcset', srcset);
-  link.setAttribute('imagesizes', '100vw');
-  link.setAttribute('media', isMob ? '(max-width: 767px)' : '(min-width: 768px)');
-  link.setAttribute('fetchpriority', 'high');
-  document.head.appendChild(link);
+  if (!key) return;
+  if (!document.head.querySelector('link[data-h-pre="' + key + '"]')) {
+    const isMob = !isTabletOrLargerLocal();
+    const href = key === 'c' ? (isMob ? hm.cmHref : hm.cdHref) : isMob ? hm.dmHref : hm.ddHref;
+    const srcset = key === 'c' ? (isMob ? hm.cm : hm.cd) : isMob ? hm.dm : hm.dd;
+    if (href) {
+      const link = document.createElement('link');
+      link.setAttribute('data-h-pre', key);
+      link.rel = 'preload';
+      link.as = 'image';
+      link.type = 'image/webp';
+      link.href = href;
+      if (srcset) link.setAttribute('imagesrcset', srcset);
+      link.setAttribute('imagesizes', '100vw');
+      link.setAttribute('media', isMob ? '(max-width: 767px)' : '(min-width: 768px)');
+      link.setAttribute('fetchpriority', 'high');
+      document.head.appendChild(link);
+    }
+  }
+  const hb = key === 'c' ? window.__SAFARYTI_HUB_BOOT__ : null;
+  if (hb && hb.js && !document.head.querySelector('link[data-h-mod="c"]')) {
+    for (let i = 0; i < hb.js.length; i++) {
+      const mLink = document.createElement('link');
+      mLink.setAttribute('data-h-mod', 'c');
+      mLink.rel = 'modulepreload';
+      mLink.crossOrigin = '';
+      mLink.href = hb.js[i];
+      document.head.appendChild(mLink);
+    }
+  }
+  if (hb && hb.css && !document.head.querySelector('link[data-h-css="c"]')) {
+    for (let i = 0; i < hb.css.length; i++) {
+      const cLink = document.createElement('link');
+      cLink.setAttribute('data-h-css', 'c');
+      cLink.rel = 'preload';
+      cLink.as = 'style';
+      cLink.crossOrigin = '';
+      cLink.href = hb.css[i];
+      document.head.appendChild(cLink);
+    }
+  }
 }
 
 function ensureSectionsBelowCss() {

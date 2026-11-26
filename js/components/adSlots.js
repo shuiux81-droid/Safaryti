@@ -106,6 +106,26 @@ export function activateAdSlots(root) {
     const ad = CONFIG.ads[slotId] || {};
     const frame = slot.querySelector('.partner-frame');
     if (!frame) return;
+    if (slot.hasAttribute('data-hub-deferred-tb') && !frame.firstElementChild && ad.type === 'direct' && ad.src) {
+      slot.removeAttribute('data-hub-deferred-tb');
+      const spec = getAdFrameSpec('AD-TB', false);
+      const href = ad.href || '#contact';
+      const isExternal = /^https?:\/\//i.test(href);
+      frame.innerHTML =
+        '<a href="' +
+        esc(href) +
+        '" rel="sponsored noopener"' +
+        (isExternal ? ' target="_blank"' : '') +
+        ' style="display:block;width:100%;height:100%;">' +
+        renderPictureHtml(ad.src, {
+          alt: ad.alt || 'إعلان',
+          width: spec.w,
+          height: spec.h,
+          loading: 'lazy',
+          decoding: 'async',
+        }) +
+        '</a>';
+    }
     const img = frame.querySelector('img');
 
     function markFilled() {

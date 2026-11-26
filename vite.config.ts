@@ -258,7 +258,7 @@ export default defineConfig(() => {
             js: Array.from(cultureJsDeps).map((f) => './' + f),
             css: Array.from(cultureCssDeps).map((f) => './' + f),
             m: {
-              cm: (assetMap['mobile/hub-culture-m.webp'] || './mobile/hub-culture-m.webp') + ' 800w',
+              cm: (assetMap['mobile/hub-culture-m.webp'] || './mobile/hub-culture-m.webp') + ' 640w',
               cmHref: assetMap['mobile/hub-culture-m.webp'] || './mobile/hub-culture-m.webp',
               cd: [
                 (assetMap['src/assets/images/about_temple_pillars_1794996471329-240w.webp'] || '') + ' 240w',

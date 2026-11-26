@@ -1,14 +1,13 @@
 import '../../css/routes/hub.css';
 import { CONFIG, IMG } from '../config.js';
 import { registerCleanup } from '../store.js';
-import { esc, formatArabicDate, formatViews, isReducedMotion, arrowLeftSvg, renderPictureHtml } from '../utils.js';
-import { initScrollReveals } from '../utils/viewHelpers.js';
-import { activateAdSlots } from '../components/adSlots.js';
+import { esc, formatArabicDate, formatViews, isReducedMotion, arrowLeftSvg, getResponsiveImageInfo } from '../utils.js';
 import { renderHubHeaderHtml } from '../components/hubHeader.js';
 
 export function renderCulture(main) {
   const pageTitle = 'ثقافات وتجارب';
   const subText = 'من المطبخ إلى التراث: قصص عن أطعمة الشعوب وعاداتها.';
+  let heroSettled = false;
 
   const foodTheme = CONFIG.themes.filter((t) => t.slug === 'food')[0] || {
     slug: 'food',
@@ -35,17 +34,52 @@ export function renderCulture(main) {
       .slice(0, 6);
   }
 
-  function renderThemeCardHtml(theme, isFirst) {
+  function renderCulturePictureHtml(src, opts) {
+    const info = getResponsiveImageInfo(src, opts);
+    if (!info) return '';
+    const mobLast = info.mobileWebp ? info.mobileWebp.split(',').pop().trim().split(/\s+/)[0] : '';
+    const imgSrc = mobLast || info.webp;
+    const defer = !heroSettled;
+    const srcsetAttr = defer ? 'data-defer-srcset' : 'srcset';
+    const srcAttr = defer ? 'data-defer-src' : 'src';
+    const sizesAttr = opts.sizes ? ' sizes="' + esc(opts.sizes) + '"' : '';
+    const mobSource = info.mobileWebp
+      ? '<source media="(max-width: 767px)" type="image/webp" ' + srcsetAttr + '="' + esc(info.mobileWebp) + '"' + sizesAttr + '>'
+      : '';
+    const deskSource =
+      '<source media="(min-width: 768px)" type="image/webp" ' + srcsetAttr + '="' + esc(info.srcset) + '"' + sizesAttr + '>';
+    return (
+      '<picture>' +
+      mobSource +
+      deskSource +
+      '<img ' +
+      srcAttr +
+      '="' +
+      esc(imgSrc) +
+      '" alt="' +
+      esc(opts.alt || '') +
+      '" class="' +
+      esc(opts.cls || '') +
+      '" width="' +
+      esc(String(info.width)) +
+      '" height="' +
+      esc(String(info.height)) +
+      '" loading="lazy" decoding="async" fetchpriority="low"' +
+      (opts.onerror ? ' onerror="' + opts.onerror + '"' : '') +
+      '>' +
+      '</picture>'
+    );
+  }
+
+  function renderThemeCardHtml(theme) {
     return (
       '<a href="#category/' +
       esc(theme.slug) +
       '" class="hub-card theme-hub-card hub-reveal-card" data-reveal>' +
       (theme.image
-        ? renderPictureHtml(theme.image, {
+        ? renderCulturePictureHtml(theme.image, {
             alt: '',
             cls: 'hub-card-img',
-            loading: isFirst ? 'eager' : 'lazy',
-            decoding: 'async',
             sizes: '(min-width: 1024px) 520px, 95vw',
             onerror: "this.style.display='none'",
           })
@@ -81,6 +115,7 @@ export function renderCulture(main) {
     const revealAttr = alreadyRevealed
       ? ' data-reveal class="culture-story-card hub-reveal-card is-revealed"'
       : ' data-reveal class="culture-story-card hub-reveal-card"';
+    const fbSrcAttr = heroSettled ? 'src' : 'data-defer-src';
     return (
       '<a href="' +
       esc(story.href || '#article/' + story.id) +
@@ -93,20 +128,20 @@ export function renderCulture(main) {
       mediaCls +
       '">' +
       (hasImg
-        ? renderPictureHtml(story.image, {
+        ? renderCulturePictureHtml(story.image, {
             alt: story.title,
             cls: 'culture-story-img',
-            loading: 'lazy',
-            decoding: 'async',
             sizes: '(min-width: 1024px) 340px, 90vw',
             onerror: "this.closest('.culture-story-media').classList.add('is-fallback')",
           })
         : '') +
-      '<div class="culture-story-fallback" aria-hidden="true"><img src="' +
+      '<div class="culture-story-fallback" aria-hidden="true"><img ' +
+      fbSrcAttr +
+      '="' +
       esc(CONFIG.assets.logo) +
       '" data-fb="' +
       esc(CONFIG.assets.logoPng || '') +
-      '" width="272" height="112" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fbTried){this.dataset.fbTried=\'1\';var f=this.getAttribute(\'data-fb\');if(f){this.src=f;return;}}window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></div>' +
+      '" width="272" height="112" alt="" loading="lazy" decoding="async" fetchpriority="low" onerror="if(!this.dataset.fbTried){this.dataset.fbTried=\'1\';var f=this.getAttribute(\'data-fb\');if(f){this.src=f;return;}}window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></div>' +
       '</div>' +
       '<div class="culture-story-body">' +
       '<span class="culture-story-title-wrap"><h3 class="culture-story-title">' +
@@ -128,16 +163,17 @@ export function renderCulture(main) {
 
   const initialStories = getFilteredCultureStories('food');
 
-  main.innerHTML =
-    renderHubHeaderHtml(pageTitle, subText, IMG.pillars) +
+  main.innerHTML = renderHubHeaderHtml(pageTitle, subText, IMG.pillars);
+
+  const bodyHtml =
     '<div class="container">' +
     '<section class="hub-section" aria-label="ثقافات وتجارب">' +
     '<div class="culture-columns">' +
     '<div class="culture-col">' +
-    renderThemeCardHtml(foodTheme, true) +
+    renderThemeCardHtml(foodTheme) +
     '</div>' +
     '<div class="culture-col">' +
-    renderThemeCardHtml(heritageTheme, false) +
+    renderThemeCardHtml(heritageTheme) +
     '</div>' +
     '</div>' +
     '<div class="culture-latest-section" aria-labelledby="culture-latest-title">' +
@@ -155,15 +191,54 @@ export function renderCulture(main) {
     '</section>' +
     '</div>';
 
+  main.insertAdjacentHTML('beforeend', bodyHtml);
+
   let activeFilter = 'food';
   let fadeTimer = null;
   let fadeRaf1 = null;
   let fadeRaf2 = null;
+  let heroFallbackTimer = null;
+  let heroIdleId = null;
+  let disposed = false;
   const gridEl = main.querySelector('#culture-stories-grid');
   const chipBtns = Array.prototype.slice.call(main.querySelectorAll('.culture-filter-chip'));
 
+  function hydratePostHero() {
+    if (heroSettled || disposed) return;
+    heroSettled = true;
+    clearTimeout(heroFallbackTimer);
+    heroFallbackTimer = null;
+    if ('cancelIdleCallback' in window && heroIdleId !== null) {
+      try {
+        window.cancelIdleCallback(heroIdleId);
+      } catch (_e) {}
+      heroIdleId = null;
+    }
+    main.querySelectorAll('source[data-defer-srcset]').forEach((s) => {
+      const val = s.getAttribute('data-defer-srcset');
+      if (val) s.setAttribute('srcset', val);
+      s.removeAttribute('data-defer-srcset');
+    });
+    main.querySelectorAll('img[data-defer-src]').forEach((img) => {
+      const val = img.getAttribute('data-defer-src');
+      if (val) img.setAttribute('src', val);
+      img.removeAttribute('data-defer-src');
+    });
+    import('../components/adSlots.js')
+      .then((m) => {
+        if (!disposed) m.activateAdSlots(main);
+      })
+      .catch(() => {});
+    import('../utils/viewHelpers.js')
+      .then((m) => {
+        if (!disposed) m.initScrollReveals(main);
+      })
+      .catch(() => {});
+  }
+
   function applyFilter(nextFilter) {
     if (!gridEl || nextFilter === activeFilter) return;
+    if (!heroSettled) hydratePostHero();
     activeFilter = nextFilter;
     chipBtns.forEach((btn) => {
       btn.setAttribute('aria-pressed', btn.getAttribute('data-culture-filter') === nextFilter ? 'true' : 'false');
@@ -210,7 +285,30 @@ export function renderCulture(main) {
     });
   });
 
+  const heroImg = main.querySelector('.inner-header-bg-img');
+  if (heroImg && !(heroImg.complete && heroImg.naturalWidth > 0)) {
+    const onHeroReady = () => {
+      if ('requestIdleCallback' in window) {
+        heroIdleId = window.requestIdleCallback(hydratePostHero, { timeout: 250 });
+      } else {
+        setTimeout(hydratePostHero, 0);
+      }
+    };
+    heroImg.addEventListener('load', onHeroReady, { once: true });
+    heroImg.addEventListener('error', onHeroReady, { once: true });
+    heroFallbackTimer = setTimeout(hydratePostHero, 2500);
+  } else {
+    hydratePostHero();
+  }
+
   registerCleanup(() => {
+    disposed = true;
+    clearTimeout(heroFallbackTimer);
+    if ('cancelIdleCallback' in window && heroIdleId !== null) {
+      try {
+        window.cancelIdleCallback(heroIdleId);
+      } catch (_e) {}
+    }
     if (fadeTimer) {
       clearTimeout(fadeTimer);
       fadeTimer = null;
@@ -225,7 +323,5 @@ export function renderCulture(main) {
     }
   });
 
-  activateAdSlots(main);
-  initScrollReveals(main);
   return 'ثقافات وتجارب | سفريتي';
 }
