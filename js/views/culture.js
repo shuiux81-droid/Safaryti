@@ -35,7 +35,7 @@ export function renderCulture(main) {
       .slice(0, 6);
   }
 
-  function renderThemeCardHtml(theme) {
+  function renderThemeCardHtml(theme, isFirst) {
     return (
       '<a href="#category/' +
       esc(theme.slug) +
@@ -44,7 +44,7 @@ export function renderCulture(main) {
         ? renderPictureHtml(theme.image, {
             alt: '',
             cls: 'hub-card-img',
-            loading: 'lazy',
+            loading: isFirst ? 'eager' : 'lazy',
             decoding: 'async',
             sizes: '(min-width: 1024px) 520px, 95vw',
             onerror: "this.style.display='none'",
@@ -104,7 +104,9 @@ export function renderCulture(main) {
         : '') +
       '<div class="culture-story-fallback" aria-hidden="true"><img src="' +
       esc(CONFIG.assets.logo) +
-      '" alt="" decoding="async" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></div>' +
+      '" data-fb="' +
+      esc(CONFIG.assets.logoPng || '') +
+      '" width="272" height="112" alt="" loading="lazy" decoding="async" onerror="if(!this.dataset.fbTried){this.dataset.fbTried=\'1\';var f=this.getAttribute(\'data-fb\');if(f){this.src=f;return;}}window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></div>' +
       '</div>' +
       '<div class="culture-story-body">' +
       '<span class="culture-story-title-wrap"><h3 class="culture-story-title">' +
@@ -132,10 +134,10 @@ export function renderCulture(main) {
     '<section class="hub-section" aria-label="ثقافات وتجارب">' +
     '<div class="culture-columns">' +
     '<div class="culture-col">' +
-    renderThemeCardHtml(foodTheme) +
+    renderThemeCardHtml(foodTheme, true) +
     '</div>' +
     '<div class="culture-col">' +
-    renderThemeCardHtml(heritageTheme) +
+    renderThemeCardHtml(heritageTheme, false) +
     '</div>' +
     '</div>' +
     '<div class="culture-latest-section" aria-labelledby="culture-latest-title">' +

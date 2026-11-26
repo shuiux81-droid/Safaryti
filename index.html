@@ -36,6 +36,7 @@
       if(v==='search')d.dataset.initView='search';
       var cb=/*__SAFARYTI_CONTACT_BOOT__*/null;
       var sb=/*__SAFARYTI_SEARCH_BOOT__*/null;
+      var hb=/*__SAFARYTI_HUB_BOOT__*/null;
       var cm=cb&&cb.m?cb.m:{
         hm:'./mobile/hero-marsa-m.webp 800w',
         hmHref:'./mobile/hero-marsa-m.webp',
@@ -49,17 +50,28 @@
       window.__SAFARYTI_CONTACT_MEDIA__=cm;
       var sm=sb&&sb.fd?{fd:sb.fd,fm:sb.fm}:{fd:'./src/assets/images/about_warm_clouds_1795352383366.webp',fm:'./src/assets/images/about_warm_clouds_1795352383366-480w.webp'};
       window.__SAFARYTI_SEARCH_MEDIA__=sm;
+      var hm=hb&&hb.m?hb.m:{
+        cm:'./mobile/hub-culture-m.webp 800w',
+        cmHref:'./mobile/hub-culture-m.webp',
+        cd:'./src/assets/images/about_temple_pillars_1794996471329-240w.webp 240w, ./src/assets/images/about_temple_pillars_1794996471329-480w.webp 480w, ./src/assets/images/about_temple_pillars_1794996471329-640w.webp 640w, ./src/assets/images/about_temple_pillars_1794996471329-760w.webp 760w, ./src/assets/images/about_temple_pillars_1794996471329.webp 896w',
+        cdHref:'./src/assets/images/about_temple_pillars_1794996471329.webp',
+        dm:'./src/assets/images/region_asia_landscape_1794996469512-800w.webp 800w',
+        dmHref:'./src/assets/images/region_asia_landscape_1794996469512-800w.webp',
+        dd:'./src/assets/images/region_asia_landscape_1794996469512-240w.webp 240w, ./src/assets/images/region_asia_landscape_1794996469512-480w.webp 480w, ./src/assets/images/region_asia_landscape_1794996469512-800w.webp 800w, ./src/assets/images/region_asia_landscape_1794996469512-1120w.webp 1120w, ./src/assets/images/region_asia_landscape_1794996469512.webp 1376w',
+        ddHref:'./src/assets/images/region_asia_landscape_1794996469512.webp'
+      };
+      window.__SAFARYTI_HUB_MEDIA__=hm;
       var bCss=/*__SAFARYTI_BELOW_CSS__*/null;
       window.__SAFARYTI_BELOW_CSS__=bCss;
       var hdEl=document.head||d.firstElementChild;
       var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
-      if(v!=='search'&&bCss){
+      if(v!=='search'&&v!=='culture'&&bCss){
         var bl=document.createElement('link');
         bl.rel='preload';bl.as='style';bl.href=bCss;bl.setAttribute('fetchpriority','low');bl.setAttribute('data-sections-below-link','1');
         bl.onload=function(){this.onload=null;this.rel='stylesheet';};
         hdEl.appendChild(bl);
       }
-      if(v==='contact'||v==='search'){
+      if(v==='contact'||v==='search'||v==='culture'||v==='discover'){
         var isMob=window.matchMedia?window.matchMedia('(max-width: 767px)').matches:window.innerWidth<=767;
         if(v==='contact'){
           mk(isMob
@@ -70,10 +82,20 @@
             :{rel:'preload',as:'image',type:'image/webp',href:cm.pdHref,imagesrcset:cm.pd,imagesizes:'(min-width: 1024px) 480px, 92vw','data-c-pre':'photo'});
           if(cb&&cb.js){for(var ji=0;ji<cb.js.length;ji++)mk({rel:'modulepreload',crossorigin:'',href:cb.js[ji]});}
           if(cb&&cb.css){for(var ci=0;ci<cb.css.length;ci++)mk({rel:'preload',as:'style',crossorigin:'',href:cb.css[ci]});}
-        }else{
+        }else if(v==='search'){
           mk({rel:'preload',as:'image',type:'image/webp',href:isMob?sm.fm:sm.fd,fetchpriority:'high','data-s-pre':'fbg'});
           if(sb&&sb.js){for(var sj=0;sj<sb.js.length;sj++)mk({rel:'modulepreload',crossorigin:'',href:sb.js[sj]});}
           if(sb&&sb.css){for(var sc=0;sc<sb.css.length;sc++)mk({rel:'preload',as:'style',crossorigin:'',href:sb.css[sc]});}
+        }else if(v==='culture'){
+          mk(isMob
+            ?{rel:'preload',as:'image',type:'image/webp',href:hm.cmHref,imagesrcset:hm.cm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-h-pre':'c'}
+            :{rel:'preload',as:'image',type:'image/webp',href:hm.cdHref,imagesrcset:hm.cd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-h-pre':'c'});
+          if(hb&&hb.js){for(var hji=0;hji<hb.js.length;hji++)mk({rel:'modulepreload',crossorigin:'',href:hb.js[hji]});}
+          if(hb&&hb.css){for(var hci=0;hci<hb.css.length;hci++)mk({rel:'preload',as:'style',crossorigin:'',href:hb.css[hci]});}
+        }else{
+          mk(isMob
+            ?{rel:'preload',as:'image',type:'image/webp',href:hm.dmHref,imagesrcset:hm.dm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-h-pre':'d'}
+            :{rel:'preload',as:'image',type:'image/webp',href:hm.ddHref,imagesrcset:hm.dd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-h-pre':'d'});
         }
       }
       document.addEventListener('DOMContentLoaded',function(){
@@ -149,7 +171,7 @@
 
   <header id="site-header" class="site-header no-auto-ads" role="banner">
     <a href="#home" id="header-logo-pill" class="glass-group header-logo-pill" aria-label="سفريتي - الرئيسية">
-      <picture><source media="(max-width: 767px)" type="image/webp" srcset="./mobile/logo-m.webp"><source type="image/webp" srcset="./assets/aistudio/logo_ebd6693e.webp"><img id="header-logo-img" src="./assets/aistudio/logo_ebd6693e.png" alt="سفريتي" width="272" height="112" decoding="async" fetchpriority="high" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></picture>
+      <picture><source media="(max-width: 767px)" type="image/webp" srcset="./mobile/logo-m.webp"><source type="image/webp" srcset="./assets/aistudio/logo_ebd6693e.webp"><img id="header-logo-img" src="./assets/aistudio/logo_ebd6693e.webp" data-fb="./assets/aistudio/logo_ebd6693e.png" alt="سفريتي" width="272" height="112" decoding="async" fetchpriority="high" onerror="if(!this.dataset.fbTried){this.dataset.fbTried='1';var f=this.getAttribute('data-fb');if(f){if(this.parentNode&&this.parentNode.tagName==='PICTURE'){var ss=this.parentNode.querySelectorAll('source');for(var i=0;i<ss.length;i++)ss[i].remove();}this.src=f;return;}}window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></picture>
     </a>
 
     <nav class="glass-group header-nav-pill" aria-label="التنقل الرئيسي">

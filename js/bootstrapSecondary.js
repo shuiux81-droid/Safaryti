@@ -35,19 +35,20 @@ export function initSecondaryShell() {
 
   const runContactIdlePrefetch = () => {
     const view = getState().currentView;
-    if (view !== 'contact' && view !== 'search') {
+    if (view !== 'contact' && view !== 'search' && view !== 'culture') {
       prefetchRouteByHash('#contact');
     }
   };
   const queueContactPrefetch = () => {
-    if (getState().currentView === 'search') return;
+    const view = getState().currentView;
+    if (view === 'search' || view === 'culture') return;
     if ('requestIdleCallback' in window) {
       window.requestIdleCallback(runContactIdlePrefetch, { timeout: 2500 });
     } else {
       setTimeout(runContactIdlePrefetch, 1200);
     }
   };
-  if (getState().currentView !== 'search') {
+  if (getState().currentView !== 'search' && getState().currentView !== 'culture') {
     if (document.readyState === 'complete') {
       queueContactPrefetch();
     } else {

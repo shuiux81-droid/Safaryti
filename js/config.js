@@ -67,7 +67,8 @@ export function resolveBaseAssetUrl(relPath) {
 
 export const CONFIG = {
   assets: {
-    logo: resolveBaseAssetUrl('./assets/aistudio/logo_ebd6693e.png'),
+    logo: resolveBaseAssetUrl('./assets/aistudio/logo_ebd6693e.webp'),
+    logoPng: resolveBaseAssetUrl('./assets/aistudio/logo_ebd6693e.png'),
     logoLight: LOGO_LIGHT_SVG,
     favicon: resolveBaseAssetUrl('./favicon.svg'),
     expandImage: IMG.expand,

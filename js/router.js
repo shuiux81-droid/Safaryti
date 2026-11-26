@@ -145,6 +145,29 @@ function preloadSearchMedia() {
   document.head.appendChild(link);
 }
 
+function preloadHubMedia(view) {
+  if (typeof document === 'undefined' || !document.head) return;
+  const hm = window.__SAFARYTI_HUB_MEDIA__;
+  if (!hm) return;
+  const key = view === 'culture' ? 'c' : view === 'discover' ? 'd' : '';
+  if (!key || document.head.querySelector('link[data-h-pre="' + key + '"]')) return;
+  const isMob = !isTabletOrLargerLocal();
+  const href = key === 'c' ? (isMob ? hm.cmHref : hm.cdHref) : isMob ? hm.dmHref : hm.ddHref;
+  const srcset = key === 'c' ? (isMob ? hm.cm : hm.cd) : isMob ? hm.dm : hm.dd;
+  if (!href) return;
+  const link = document.createElement('link');
+  link.setAttribute('data-h-pre', key);
+  link.rel = 'preload';
+  link.as = 'image';
+  link.type = 'image/webp';
+  link.href = href;
+  if (srcset) link.setAttribute('imagesrcset', srcset);
+  link.setAttribute('imagesizes', '100vw');
+  link.setAttribute('media', isMob ? '(max-width: 767px)' : '(min-width: 768px)');
+  link.setAttribute('fetchpriority', 'high');
+  document.head.appendChild(link);
+}
+
 function ensureSectionsBelowCss() {
   if (typeof document === 'undefined' || !document.head) return;
   const href = window.__SAFARYTI_BELOW_CSS__;
@@ -161,7 +184,8 @@ export function prefetchRouteByHash(href) {
   const route = parseHash(href);
   if (route.view === 'contact') preloadContactMedia(false);
   else if (route.view === 'search') preloadSearchMedia();
-  if (route.view !== 'search') ensureSectionsBelowCss();
+  else if (route.view === 'culture' || route.view === 'discover') preloadHubMedia(route.view);
+  if (route.view !== 'search' && route.view !== 'culture') ensureSectionsBelowCss();
   const loader = isTipsHubRoute(route) ? ROUTE_LOADERS.tips : ROUTE_LOADERS[route.view];
   if (loader) {
     loader().catch(() => {});
@@ -244,7 +268,8 @@ export function renderRoute(isInitial) {
   const route = parseHash();
   if (route.view === 'contact') preloadContactMedia(true);
   else if (route.view === 'search') preloadSearchMedia();
-  if (route.view !== 'search') ensureSectionsBelowCss();
+  else if (route.view === 'culture' || route.view === 'discover') preloadHubMedia(route.view);
+  if (route.view !== 'search' && route.view !== 'culture') ensureSectionsBelowCss();
   setState({ currentView: route.view, route, activeSceneIndex: -1 });
   clearTimeout(routeTimer);
 

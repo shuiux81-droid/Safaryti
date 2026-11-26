@@ -155,8 +155,11 @@ export default defineConfig(() => {
           const contactCssDeps = new Set<string>();
           const searchJsDeps = new Set<string>();
           const searchCssDeps = new Set<string>();
+          const cultureJsDeps = new Set<string>();
+          const cultureCssDeps = new Set<string>();
           let contactChunkFile = '';
           let searchChunkFile = '';
+          let cultureChunkFile = '';
           for (const [fileName, item] of Object.entries(bundle)) {
             if (item.type === 'chunk') {
               if (item.code.includes('__SAFARYTI_ASSET_MAP_JSON__')) {
@@ -173,6 +176,9 @@ export default defineConfig(() => {
               }
               if (/^assets\/search-[^/]+\.js$/.test(fileName)) {
                 searchChunkFile = fileName;
+              }
+              if (/^assets\/culture-[^/]+\.js$/.test(fileName)) {
+                cultureChunkFile = fileName;
               }
             }
           }
@@ -201,6 +207,7 @@ export default defineConfig(() => {
           };
           collectChunkTree(contactChunkFile, contactJsDeps, contactCssDeps);
           collectChunkTree(searchChunkFile, searchJsDeps, searchCssDeps);
+          collectChunkTree(cultureChunkFile, cultureJsDeps, cultureCssDeps);
           const searchBoot = {
             js: Array.from(searchJsDeps).map((f) => './' + f),
             css: Array.from(searchCssDeps).map((f) => './' + f),
@@ -247,6 +254,40 @@ export default defineConfig(() => {
                 './src/assets/images/contact_temple_traveler_1795429682873.webp',
             },
           };
+          const hubBoot = {
+            js: Array.from(cultureJsDeps).map((f) => './' + f),
+            css: Array.from(cultureCssDeps).map((f) => './' + f),
+            m: {
+              cm: (assetMap['mobile/hub-culture-m.webp'] || './mobile/hub-culture-m.webp') + ' 800w',
+              cmHref: assetMap['mobile/hub-culture-m.webp'] || './mobile/hub-culture-m.webp',
+              cd: [
+                (assetMap['src/assets/images/about_temple_pillars_1794996471329-240w.webp'] || '') + ' 240w',
+                (assetMap['src/assets/images/about_temple_pillars_1794996471329-480w.webp'] || '') + ' 480w',
+                (assetMap['src/assets/images/about_temple_pillars_1794996471329-640w.webp'] || '') + ' 640w',
+                (assetMap['src/assets/images/about_temple_pillars_1794996471329-760w.webp'] || '') + ' 760w',
+                (assetMap['src/assets/images/about_temple_pillars_1794996471329.webp'] || '') + ' 896w',
+              ].join(', '),
+              cdHref:
+                assetMap['src/assets/images/about_temple_pillars_1794996471329.webp'] ||
+                './src/assets/images/about_temple_pillars_1794996471329.webp',
+              dm:
+                (assetMap['src/assets/images/region_asia_landscape_1794996469512-800w.webp'] ||
+                  './src/assets/images/region_asia_landscape_1794996469512-800w.webp') + ' 800w',
+              dmHref:
+                assetMap['src/assets/images/region_asia_landscape_1794996469512-800w.webp'] ||
+                './src/assets/images/region_asia_landscape_1794996469512-800w.webp',
+              dd: [
+                (assetMap['src/assets/images/region_asia_landscape_1794996469512-240w.webp'] || '') + ' 240w',
+                (assetMap['src/assets/images/region_asia_landscape_1794996469512-480w.webp'] || '') + ' 480w',
+                (assetMap['src/assets/images/region_asia_landscape_1794996469512-800w.webp'] || '') + ' 800w',
+                (assetMap['src/assets/images/region_asia_landscape_1794996469512-1120w.webp'] || '') + ' 1120w',
+                (assetMap['src/assets/images/region_asia_landscape_1794996469512.webp'] || '') + ' 1376w',
+              ].join(', '),
+              ddHref:
+                assetMap['src/assets/images/region_asia_landscape_1794996469512.webp'] ||
+                './src/assets/images/region_asia_landscape_1794996469512.webp',
+            },
+          };
           extraModulePreloads = Array.from(homeDeps);
 
           const htmlAsset = bundle['index.html'];
@@ -289,9 +330,9 @@ export default defineConfig(() => {
               out = out.replace(`<!--SAFARYTI_STYLE_${si}-->`, () => '<style>' + minCss.code.trim() + '</style>');
             }
 
-            // Rewrite href="...", src="...", data-lazy-src="..."
+            // Rewrite href="...", src="...", data-lazy-src="...", data-fb="..."
             out = out.replace(
-              /\b(href|src|data-lazy-src)=(["'])([^"']+)\2/gi,
+              /\b(href|src|data-lazy-src|data-fb)=(["'])([^"']+)\2/gi,
               (full, attr, q, val) => {
                 const hashed = rewriteAssetUrl(val, false);
                 return hashed ? `${attr}=${q}${hashed}${q}` : full;
@@ -332,6 +373,7 @@ export default defineConfig(() => {
 
             out = out.replace('/*__SAFARYTI_CONTACT_BOOT__*/null', () => JSON.stringify(contactBoot));
             out = out.replace('/*__SAFARYTI_SEARCH_BOOT__*/null', () => JSON.stringify(searchBoot));
+            out = out.replace('/*__SAFARYTI_HUB_BOOT__*/null', () => JSON.stringify(hubBoot));
             out = out.replace('/*__SAFARYTI_BELOW_CSS__*/null', () => JSON.stringify(sectionsBelowHashed || ''));
             htmlAsset.source = out;
           }
