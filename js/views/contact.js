@@ -95,7 +95,6 @@ export function renderContact(main) {
         cls: 'contact-photo-img',
         alt: contactImgAlt,
         loading: 'eager',
-        fetchpriority: 'high',
         decoding: 'async',
         referrerpolicy: 'no-referrer',
         sizes: '(min-width: 1024px) 480px, 92vw',

@@ -73,6 +73,7 @@ function preloadContactMedia(includeCardPhoto) {
   if (typeof document === 'undefined' || !document.head) return;
   const cm = window.__SAFARYTI_CONTACT_MEDIA__;
   if (!cm) return;
+  const isMob = !isTabletOrLargerLocal();
   const ensure = (key, attrs) => {
     if (document.head.querySelector('link[data-c-pre="' + key + '"]')) return;
     const link = document.createElement('link');
@@ -82,47 +83,49 @@ function preloadContactMedia(includeCardPhoto) {
     }
     document.head.appendChild(link);
   };
-  ensure('hm', {
-    rel: 'preload',
-    as: 'image',
-    type: 'image/webp',
-    href: cm.hmHref,
-    imagesrcset: cm.hm,
-    imagesizes: '100vw',
-    media: '(max-width: 767px)',
-    fetchpriority: 'high',
-  });
-  ensure('hd', {
-    rel: 'preload',
-    as: 'image',
-    type: 'image/webp',
-    href: cm.hdHref,
-    imagesrcset: cm.hd,
-    imagesizes: '100vw',
-    media: '(min-width: 768px)',
-    fetchpriority: 'high',
-  });
+  ensure(
+    'hero',
+    isMob
+      ? {
+          rel: 'preload',
+          as: 'image',
+          type: 'image/webp',
+          href: cm.hmHref,
+          imagesrcset: cm.hm,
+          imagesizes: '100vw',
+          fetchpriority: 'high',
+        }
+      : {
+          rel: 'preload',
+          as: 'image',
+          type: 'image/webp',
+          href: cm.hdHref,
+          imagesrcset: cm.hd,
+          imagesizes: '100vw',
+          fetchpriority: 'high',
+        }
+  );
   if (includeCardPhoto) {
-    ensure('pm', {
-      rel: 'preload',
-      as: 'image',
-      type: 'image/webp',
-      href: cm.pmHref,
-      imagesrcset: cm.pm,
-      imagesizes: '(min-width: 1024px) 480px, 92vw',
-      media: '(max-width: 767px)',
-      fetchpriority: 'high',
-    });
-    ensure('pd', {
-      rel: 'preload',
-      as: 'image',
-      type: 'image/webp',
-      href: cm.pdHref,
-      imagesrcset: cm.pd,
-      imagesizes: '(min-width: 1024px) 480px, 92vw',
-      media: '(min-width: 768px)',
-      fetchpriority: 'high',
-    });
+    ensure(
+      'photo',
+      isMob
+        ? {
+            rel: 'preload',
+            as: 'image',
+            type: 'image/webp',
+            href: cm.pmHref,
+            imagesrcset: cm.pm,
+            imagesizes: '(min-width: 1024px) 480px, 92vw',
+          }
+        : {
+            rel: 'preload',
+            as: 'image',
+            type: 'image/webp',
+            href: cm.pdHref,
+            imagesrcset: cm.pd,
+            imagesizes: '(min-width: 1024px) 480px, 92vw',
+          }
+    );
   }
 }
 

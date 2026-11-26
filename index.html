@@ -47,13 +47,16 @@
       window.__SAFARYTI_CONTACT_MEDIA__=cm;
       if(v==='contact'){
         var hdEl=document.head||d.firstElementChild;
+        var isMob=window.matchMedia?window.matchMedia('(max-width: 767px)').matches:window.innerWidth<=767;
         var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
-        mk({rel:'preload',as:'image',type:'image/webp',href:cm.hmHref,imagesrcset:cm.hm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-c-pre':'hm'});
-        mk({rel:'preload',as:'image',type:'image/webp',href:cm.hdHref,imagesrcset:cm.hd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-c-pre':'hd'});
-        mk({rel:'preload',as:'image',type:'image/webp',href:cm.pmHref,imagesrcset:cm.pm,imagesizes:'(min-width: 1024px) 480px, 92vw',media:'(max-width: 767px)',fetchpriority:'high','data-c-pre':'pm'});
-        mk({rel:'preload',as:'image',type:'image/webp',href:cm.pdHref,imagesrcset:cm.pd,imagesizes:'(min-width: 1024px) 480px, 92vw',media:'(min-width: 768px)',fetchpriority:'high','data-c-pre':'pd'});
+        mk(isMob
+          ?{rel:'preload',as:'image',type:'image/webp',href:cm.hmHref,imagesrcset:cm.hm,imagesizes:'100vw',fetchpriority:'high','data-c-pre':'hero'}
+          :{rel:'preload',as:'image',type:'image/webp',href:cm.hdHref,imagesrcset:cm.hd,imagesizes:'100vw',fetchpriority:'high','data-c-pre':'hero'});
+        mk(isMob
+          ?{rel:'preload',as:'image',type:'image/webp',href:cm.pmHref,imagesrcset:cm.pm,imagesizes:'(min-width: 1024px) 480px, 92vw','data-c-pre':'photo'}
+          :{rel:'preload',as:'image',type:'image/webp',href:cm.pdHref,imagesrcset:cm.pd,imagesizes:'(min-width: 1024px) 480px, 92vw','data-c-pre':'photo'});
         if(cb&&cb.js){for(var ji=0;ji<cb.js.length;ji++)mk({rel:'modulepreload',crossorigin:'',href:cb.js[ji]});}
-        if(cb&&cb.css){for(var ci=0;ci<cb.css.length;ci++)mk({rel:'stylesheet',href:cb.css[ci]});}
+        if(cb&&cb.css){for(var ci=0;ci<cb.css.length;ci++)mk({rel:'preload',as:'style',crossorigin:'',href:cb.css[ci]});}
       }
       document.addEventListener('DOMContentLoaded',function(){
         setTimeout(function(){
