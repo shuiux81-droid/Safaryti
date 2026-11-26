@@ -159,10 +159,14 @@ export default defineConfig(() => {
           const cultureCssDeps = new Set<string>();
           const archiveJsDeps = new Set<string>();
           const archiveCssDeps = new Set<string>();
+          const tipsJsDeps = new Set<string>();
+          const tipsCssDeps = new Set<string>();
           let contactChunkFile = '';
           let searchChunkFile = '';
           let cultureChunkFile = '';
           let archiveChunkFile = '';
+          let tipsChunkFile = '';
+          let scrollChunkFile = '';
           for (const [fileName, item] of Object.entries(bundle)) {
             if (item.type === 'chunk') {
               if (item.code.includes('__SAFARYTI_ASSET_MAP_JSON__')) {
@@ -185,6 +189,12 @@ export default defineConfig(() => {
               }
               if (/^assets\/archive-[^/]+\.js$/.test(fileName)) {
                 archiveChunkFile = fileName;
+              }
+              if (/^assets\/tips-[^/]+\.js$/.test(fileName)) {
+                tipsChunkFile = fileName;
+              }
+              if (/^assets\/scrollController-[^/]+\.js$/.test(fileName)) {
+                scrollChunkFile = fileName;
               }
             }
           }
@@ -215,6 +225,9 @@ export default defineConfig(() => {
           collectChunkTree(searchChunkFile, searchJsDeps, searchCssDeps);
           collectChunkTree(cultureChunkFile, cultureJsDeps, cultureCssDeps);
           collectChunkTree(archiveChunkFile, archiveJsDeps, archiveCssDeps);
+          collectChunkTree(scrollChunkFile, archiveJsDeps, archiveCssDeps);
+          collectChunkTree(tipsChunkFile, tipsJsDeps, tipsCssDeps);
+          collectChunkTree(scrollChunkFile, tipsJsDeps, tipsCssDeps);
           const searchBoot = {
             js: Array.from(searchJsDeps).map((f) => './' + f),
             css: Array.from(searchCssDeps).map((f) => './' + f),
@@ -295,9 +308,69 @@ export default defineConfig(() => {
                 './src/assets/images/region_asia_landscape_1794996469512.webp',
             },
           };
+          const cfgSrc = fs.readFileSync(path.resolve(rootDir, 'js/config.js'), 'utf8');
+          const logicSrc = fs.readFileSync(path.resolve(rootDir, 'js/safarytiLogic.js'), 'utf8');
+          const imgVarMap: Record<string, string> = {};
+          const imgBlockMatch = cfgSrc.match(/export const IMG = \{([\s\S]*?)\};/);
+          if (imgBlockMatch) {
+            for (const m of imgBlockMatch[1].matchAll(/(\w+):\s*'([^']+)'/g)) {
+              imgVarMap[m[1]] = m[2];
+            }
+          }
+          const catMobByImgKey: Record<string, { file: string; w: number }> = {
+            asia: { file: 'mobile/cat-asia-m.webp', w: 800 },
+            suez: { file: 'mobile/cat-africa-m.webp', w: 800 },
+            europe: { file: 'mobile/cat-europe-m.webp', w: 640 },
+            na: { file: 'mobile/cat-na-m.webp', w: 640 },
+            sa: { file: 'mobile/cat-sa-m.webp', w: 640 },
+            oceania: { file: 'mobile/cat-oceania-m.webp', w: 640 },
+            heroAd2: { file: 'mobile/cat-food-m.webp', w: 640 },
+            pyramids: { file: 'mobile/cat-heritage-m.webp', w: 640 },
+            expand: { file: 'mobile/cat-tips-m.webp', w: 800 },
+            aboutWing: { file: 'mobile/cat-planning-m.webp', w: 800 },
+            heroAd1: { file: 'mobile/cat-safety-m.webp', w: 560 },
+          };
+          const catHeroMap: Record<string, { hm: string; hmHref: string; hd: string; hdHref: string }> = {};
+          const catAliasMap: Record<string, string> = {};
+          const aliasBlockMatch = logicSrc.match(/CATEGORY_CANONICAL_SLUGS\s*=\s*\{([\s\S]*?)\};/);
+          if (aliasBlockMatch) {
+            for (const m of aliasBlockMatch[1].matchAll(/(?:['"]([^'"]+)['"]|(\b[a-z-]+))\s*:\s*'([^']+)'/g)) {
+              const rawKey = m[1] || m[2];
+              if (rawKey && rawKey !== m[3]) catAliasMap[rawKey] = m[3];
+            }
+          }
+          const buildCatHeroEntry = (imgKey: string) => {
+            const rawImg = imgVarMap[imgKey];
+            const mob = catMobByImgKey[imgKey];
+            if (!rawImg || !mob) return null;
+            const stem = path.posix.basename(rawImg, path.posix.extname(rawImg));
+            const baseKey = 'src/assets/images/' + stem;
+            const has1120 = Boolean(assetMap[baseKey + '-1120w.webp']);
+            const widths = has1120 ? [240, 480, 800, 1120] : [240, 480, 800];
+            const fullW = has1120 ? 1376 : 1200;
+            const hdHref = assetMap[baseKey + '.webp'] || './' + baseKey + '.webp';
+            const hd = widths
+              .map((w) => (assetMap[baseKey + '-' + w + 'w.webp'] || './' + baseKey + '-' + w + 'w.webp') + ' ' + w + 'w')
+              .concat([hdHref + ' ' + fullW + 'w'])
+              .join(', ');
+            const hmHref = assetMap[mob.file] || './' + mob.file;
+            return { hm: hmHref + ' ' + mob.w + 'w', hmHref, hd, hdHref };
+          };
+          for (const blockName of ['regions', 'themes']) {
+            const bm = cfgSrc.match(new RegExp(blockName + ':\\s*\\[([\\s\\S]*?)\\],'));
+            if (!bm) continue;
+            for (const itemM of bm[1].matchAll(/\{[^}]*\bslug:\s*'([^']+)'[^}]*\bimage:\s*IMG\.(\w+)[^}]*\}/g)) {
+              const imgKey = itemM[1] === 'heritage' ? 'pyramids' : itemM[1] === 'food' ? 'heroAd2' : itemM[2];
+              const entry = buildCatHeroEntry(imgKey);
+              if (entry) catHeroMap[itemM[1]] = entry;
+            }
+          }
+
           const archiveBoot = {
             js: Array.from(archiveJsDeps).map((f) => './' + f),
             css: Array.from(archiveCssDeps).map((f) => './' + f),
+            tJs: Array.from(tipsJsDeps).map((f) => './' + f),
+            tCss: Array.from(tipsCssDeps).map((f) => './' + f),
             m: {
               hm: (assetMap['mobile/hero-backdrop-m.webp'] || './mobile/hero-backdrop-m.webp') + ' 800w',
               hmHref: assetMap['mobile/hero-backdrop-m.webp'] || './mobile/hero-backdrop-m.webp',
@@ -312,6 +385,8 @@ export default defineConfig(() => {
                 assetMap['src/assets/images/hero_zone_backdrop_1795088843394.webp'] ||
                 './src/assets/images/hero_zone_backdrop_1795088843394.webp',
             },
+            c: catHeroMap,
+            al: catAliasMap,
           };
           extraModulePreloads = Array.from(homeDeps);
 

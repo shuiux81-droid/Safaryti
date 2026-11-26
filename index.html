@@ -76,7 +76,7 @@
       window.__SAFARYTI_BELOW_CSS__=bCss;
       var hdEl=document.head||d.firstElementChild;
       var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
-      if(v==='contact'||v==='search'||v==='culture'||v==='discover'||v==='all-stories'){
+      if(v==='contact'||v==='search'||v==='culture'||v==='discover'||v==='all-stories'||v==='category'){
         var isMob=window.matchMedia?window.matchMedia('(max-width: 767px)').matches:window.innerWidth<=767;
         if(v==='contact'){
           mk(isMob
@@ -103,6 +103,19 @@
             :{rel:'preload',as:'image',type:'image/webp',href:am.hdHref,imagesrcset:am.hd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-a-pre':'hero'});
           if(ab&&ab.js){for(var aji=0;aji<ab.js.length;aji++)mk({rel:'modulepreload',crossorigin:'',href:ab.js[aji],'data-a-mod':'a'});}
           if(ab&&ab.css){for(var aci=0;aci<ab.css.length;aci++)mk({rel:'preload',as:'style',crossorigin:'',href:ab.css[aci],'data-a-css':'a'});}
+        }else if(v==='category'){
+          var cSlug=ab&&ab.c?(ab.c[cp]?cp:(ab.al&&ab.al[cp])||''):'';
+          var catM=cSlug&&ab&&ab.c?ab.c[cSlug]:null;
+          if(catM){
+            mk(isMob
+              ?{rel:'preload',as:'image',type:'image/webp',href:catM.hmHref,imagesrcset:catM.hm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-a-pre':'cat-'+cSlug}
+              :{rel:'preload',as:'image',type:'image/webp',href:catM.hdHref,imagesrcset:catM.hd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-a-pre':'cat-'+cSlug});
+            var cJs=cSlug==='tips'?ab.tJs:ab.js;
+            var cCss=cSlug==='tips'?ab.tCss:ab.css;
+            var cMk=cSlug==='tips'?'t':'a';
+            if(cJs){for(var cji=0;cji<cJs.length;cji++)mk({rel:'modulepreload',crossorigin:'',href:cJs[cji],'data-a-mod':cMk});}
+            if(cCss){for(var cci=0;cci<cCss.length;cci++)mk({rel:'preload',as:'style',crossorigin:'',href:cCss[cci],'data-a-css':cMk});}
+          }
         }else{
           mk(isMob
             ?{rel:'preload',as:'image',type:'image/webp',href:hm.dmHref,imagesrcset:hm.dm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-h-pre':'d'}

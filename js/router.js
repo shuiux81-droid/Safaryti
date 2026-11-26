@@ -238,6 +238,57 @@ function preloadArchiveMedia() {
   }
 }
 
+function preloadCategoryMedia(param) {
+  if (typeof document === 'undefined' || !document.head) return;
+  const slug = resolveCategoryChildSlug(param);
+  if (!slug) return;
+  const ab = window.__SAFARYTI_ARCHIVE_BOOT__;
+  const catMedia = ab && ab.c ? ab.c[slug] : null;
+  if (!catMedia) return;
+  const isMob = !isTabletOrLargerLocal();
+  const href = isMob ? catMedia.hmHref : catMedia.hdHref;
+  const srcset = isMob ? catMedia.hm : catMedia.hd;
+  const preKey = 'cat-' + slug;
+  if (href && !document.head.querySelector('link[data-a-pre="' + preKey + '"]')) {
+    const link = document.createElement('link');
+    link.setAttribute('data-a-pre', preKey);
+    link.rel = 'preload';
+    link.as = 'image';
+    link.type = 'image/webp';
+    link.href = href;
+    if (srcset) link.setAttribute('imagesrcset', srcset);
+    link.setAttribute('imagesizes', '100vw');
+    link.setAttribute('media', isMob ? '(max-width: 767px)' : '(min-width: 768px)');
+    link.setAttribute('fetchpriority', 'high');
+    document.head.appendChild(link);
+  }
+  const isTips = slug === 'tips';
+  const modKey = isTips ? 't' : 'a';
+  const jsList = isTips ? ab.tJs : ab.js;
+  const cssList = isTips ? ab.tCss : ab.css;
+  if (jsList && !document.head.querySelector('link[data-a-mod="' + modKey + '"]')) {
+    for (let i = 0; i < jsList.length; i++) {
+      const mLink = document.createElement('link');
+      mLink.setAttribute('data-a-mod', modKey);
+      mLink.rel = 'modulepreload';
+      mLink.crossOrigin = '';
+      mLink.href = jsList[i];
+      document.head.appendChild(mLink);
+    }
+  }
+  if (cssList && !document.head.querySelector('link[data-a-css="' + modKey + '"]')) {
+    for (let i = 0; i < cssList.length; i++) {
+      const cLink = document.createElement('link');
+      cLink.setAttribute('data-a-css', modKey);
+      cLink.rel = 'preload';
+      cLink.as = 'style';
+      cLink.crossOrigin = '';
+      cLink.href = cssList[i];
+      document.head.appendChild(cLink);
+    }
+  }
+}
+
 export function prefetchContactChunkIdle() {
   ROUTE_LOADERS.contact().catch(() => {});
 }
@@ -260,6 +311,7 @@ export function prefetchRouteByHash(href) {
   else if (route.view === 'search') preloadSearchMedia();
   else if (route.view === 'culture' || route.view === 'discover') preloadHubMedia(route.view);
   else if (route.view === 'all-stories') preloadArchiveMedia();
+  else if (route.view === 'category') preloadCategoryMedia(route.param);
   if (route.view !== 'search' && route.view !== 'culture') ensureSectionsBelowCss();
   const loader = isTipsHubRoute(route) ? ROUTE_LOADERS.tips : ROUTE_LOADERS[route.view];
   if (loader) {
@@ -345,6 +397,7 @@ export function renderRoute(isInitial) {
   else if (route.view === 'search') preloadSearchMedia();
   else if (route.view === 'culture' || route.view === 'discover') preloadHubMedia(route.view);
   else if (route.view === 'all-stories') preloadArchiveMedia();
+  else if (route.view === 'category') preloadCategoryMedia(route.param);
   if (route.view !== 'search' && route.view !== 'culture') ensureSectionsBelowCss();
   setState({ currentView: route.view, route, activeSceneIndex: -1 });
   clearTimeout(routeTimer);

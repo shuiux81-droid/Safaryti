@@ -5,7 +5,7 @@ import { esc, getResponsiveImageInfo } from '../utils.js';
 const HUB_MOBILE_HERO = {
   [IMG.pillars]: { path: './mobile/hub-culture-m.webp', w: 640, h: 857 },
   [IMG.asia]: { path: './src/assets/images/region_asia_landscape_1794996469512-800w.webp', w: 800, h: 446 },
-  [IMG.expand]: { path: './src/assets/images/expand_horizon_road_1794996468234-800w.webp', w: 800, h: 446 },
+  [IMG.expand]: { path: './mobile/cat-tips-m.webp', w: 800, h: 447 },
 };
 
 function renderHubHeroPictureHtml(bgSrc) {

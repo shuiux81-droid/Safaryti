@@ -9,6 +9,20 @@ import { renderInnerHeaderHtml } from '../components/innerHeader.js';
 import { renderStoryRow } from '../components/storyRow.js';
 import { renderSharedInnerAside, wireSharedAsideWidgets } from '../components/sharedAside.js';
 
+const CATEGORY_MOBILE_HERO = {
+  [IMG.asia]: { src: './mobile/cat-asia-m.webp', w: 800, h: 447 },
+  [IMG.suez]: { src: './mobile/cat-africa-m.webp', w: 800, h: 447 },
+  [IMG.europe]: { src: './mobile/cat-europe-m.webp', w: 640, h: 357 },
+  [IMG.na]: { src: './mobile/cat-na-m.webp', w: 640, h: 357 },
+  [IMG.sa]: { src: './mobile/cat-sa-m.webp', w: 640, h: 357 },
+  [IMG.oceania]: { src: './mobile/cat-oceania-m.webp', w: 640, h: 357 },
+  [IMG.heroAd2]: { src: './mobile/cat-food-m.webp', w: 640, h: 478 },
+  [IMG.pyramids]: { src: './mobile/cat-heritage-m.webp', w: 640, h: 478 },
+  [IMG.expand]: { src: './mobile/cat-tips-m.webp', w: 800, h: 447 },
+  [IMG.aboutWing]: { src: './mobile/cat-planning-m.webp', w: 800, h: 597 },
+  [IMG.heroAd1]: { src: './mobile/cat-safety-m.webp', w: 560, h: 418 },
+};
+
 export function renderArchive(main, mode, slug) {
   const catalog = getAllCatalog();
   let region = null;
@@ -91,13 +105,20 @@ export function renderArchive(main, mode, slug) {
         '</span>'
       : '<a href="#home">الرئيسية</a><span aria-hidden="true">›</span><span>' + esc(title) + '</span>';
 
+  const mobHero =
+    mode === 'all-stories'
+      ? { src: './mobile/hero-backdrop-m.webp', w: 800, h: 447 }
+      : mode === 'category'
+        ? CATEGORY_MOBILE_HERO[headerBg] || null
+        : null;
+
   main.innerHTML =
     renderInnerHeaderHtml({
       bgImage: headerBg,
-      heroAsImg: mode === 'all-stories',
-      mobileSrc: mode === 'all-stories' ? './mobile/hero-backdrop-m.webp' : '',
-      mobileWidth: 800,
-      mobileHeight: 447,
+      heroAsImg: Boolean(mobHero),
+      mobileSrc: mobHero ? mobHero.src : '',
+      mobileWidth: mobHero ? mobHero.w : 800,
+      mobileHeight: mobHero ? mobHero.h : 447,
       leftHtml:
         '<h1 class="t-h1 no-auto-ads" tabindex="-1">' +
         esc(title) +
@@ -179,12 +200,11 @@ export function renderArchive(main, mode, slug) {
         '<div class="story-rows">' +
         slice
           .map((item, idx) =>
-            renderStoryRow(
-              item,
-              mode === 'all-stories'
-                ? { hideMeta: hideCardMeta, eager: idx < 3, fetchpriority: idx >= 3 ? 'low' : '' }
-                : { hideMeta: hideCardMeta, eager: idx < 3 }
-            )
+            renderStoryRow(item, {
+              hideMeta: hideCardMeta,
+              eager: idx < 3,
+              fetchpriority: idx >= 3 ? 'low' : '',
+            })
           )
           .join('') +
         '</div>';
