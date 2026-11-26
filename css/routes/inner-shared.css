@@ -4,10 +4,12 @@
   padding-top: 7.25rem;
   padding-bottom: 2.5rem;
   color: var(--white);
-  background-image: url('../../src/assets/images/hero_zone_backdrop_1795088843394.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+.inner-header:not(.is-img-hero) {
+  background-image: url('../../src/assets/images/hero_zone_backdrop_1795088843394.webp');
 }
 .inner-header::before {
   content: "";
@@ -19,6 +21,26 @@
 .inner-header > .container {
   position: relative;
   z-index: 1;
+}
+.inner-header.is-img-hero {
+  background-color: #222222;
+  overflow: hidden;
+}
+.inner-header.is-img-hero::before {
+  z-index: 1;
+}
+.inner-header.is-img-hero > .container {
+  z-index: 2;
+}
+.inner-header-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
 }
 .inner-header-grid {
   display: grid;

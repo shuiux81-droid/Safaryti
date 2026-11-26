@@ -87,7 +87,6 @@ export function setupHeader() {
   }
 
   const navEl = document.querySelector('#site-header .header-nav-pill');
-  buildDesktopNavFromConfig(navEl);
 
   // Dropdown wiring (desktop nav is hidden < 1024px)
   let dropdownsMounted = false;
@@ -248,10 +247,12 @@ export function setupHeader() {
 
   const mqDesktop = getDesktopMin1024Query();
   if (isDesktopViewport()) {
+    buildDesktopNavFromConfig(navEl);
     mountDesktopDropdowns();
   } else if (mqDesktop && mqDesktop.addEventListener) {
     const onDesktopMq = (e) => {
       if (e.matches) {
+        buildDesktopNavFromConfig(navEl);
         mountDesktopDropdowns();
         if (mqDesktop.removeEventListener) mqDesktop.removeEventListener('change', onDesktopMq);
       }

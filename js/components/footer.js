@@ -3,7 +3,7 @@ import { resolveHashedAssetPath } from '../assetMap.js';
 import { esc, socialSvg, wireLogoFallback, isMobileViewport, getTabletMin768Query, isTabletOrLarger } from '../utils.js';
 import { activateAdSlots } from './adSlots.js';
 
-export function setupFooterAndRails() {
+export function setupFooterAndRails(opts) {
   function hydrateFooter() {
     const fLogo = document.getElementById('footer-logo-img');
     if (fLogo && fLogo.tagName === 'IMG') {
@@ -93,7 +93,9 @@ export function setupFooterAndRails() {
   }
   const footerEl = document.getElementById('site-footer');
   const isFooterInView =
-    footerEl && footerEl.getBoundingClientRect().top < (window.innerHeight || 900) + 100;
+    opts && typeof opts.isFooterInView === 'boolean'
+      ? opts.isFooterInView
+      : footerEl && footerEl.getBoundingClientRect().top < (window.innerHeight || 900) + 100;
   if (isFooterInView) {
     const fLogoEl = document.getElementById('footer-logo-img');
     const dbLogoEl = document.getElementById('db-logo-img');

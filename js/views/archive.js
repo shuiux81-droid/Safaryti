@@ -94,6 +94,10 @@ export function renderArchive(main, mode, slug) {
   main.innerHTML =
     renderInnerHeaderHtml({
       bgImage: headerBg,
+      heroAsImg: mode === 'all-stories',
+      mobileSrc: mode === 'all-stories' ? './mobile/hero-backdrop-m.webp' : '',
+      mobileWidth: 800,
+      mobileHeight: 447,
       leftHtml:
         '<h1 class="t-h1 no-auto-ads" tabindex="-1">' +
         esc(title) +
@@ -173,7 +177,16 @@ export function renderArchive(main, mode, slug) {
     } else {
       listEl.innerHTML =
         '<div class="story-rows">' +
-        slice.map((item, idx) => renderStoryRow(item, { hideMeta: hideCardMeta, eager: idx < 3 })).join('') +
+        slice
+          .map((item, idx) =>
+            renderStoryRow(
+              item,
+              mode === 'all-stories'
+                ? { hideMeta: hideCardMeta, eager: idx < 3, fetchpriority: idx >= 3 ? 'low' : '' }
+                : { hideMeta: hideCardMeta, eager: idx < 3 }
+            )
+          )
+          .join('') +
         '</div>';
     }
 

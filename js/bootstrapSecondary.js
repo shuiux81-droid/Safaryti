@@ -5,7 +5,7 @@ import { setupHeader, closeAllDropdowns } from './components/header.js';
 import { setupMenuOverlay, closeMenu, isMenuOpen } from './components/menuOverlay.js';
 import { setupFooterAndRails } from './components/footer.js';
 import { initScrollController } from './scrollController.js';
-import { parseHash, syncNavAriaCurrent, focusViewHeading, renderRoute, prefetchRouteByHash } from './router.js';
+import { parseHash, syncNavAriaCurrent, focusViewHeading, renderRoute, prefetchRouteByHash, prefetchContactChunkIdle } from './router.js';
 
 let initialized = false;
 
@@ -13,16 +13,18 @@ export function initSecondaryShell() {
   if (initialized) return;
   initialized = true;
 
+  const isTab = isTabletOrLarger();
+  const footerEl = !isTab ? document.getElementById('site-footer') : null;
+  const footerNearViewport =
+    isTab || (footerEl && footerEl.getBoundingClientRect().top < (window.innerHeight || 900) + 100);
+
   setupHeader();
   initScrollController();
   setupMenuOverlay();
-  const footerEl = document.getElementById('site-footer');
-  const footerNearViewport =
-    footerEl && footerEl.getBoundingClientRect().top < (window.innerHeight || 900) + 100;
-  if (isTabletOrLarger() || footerNearViewport) {
-    setupFooterAndRails();
+  if (isTab || footerNearViewport) {
+    setupFooterAndRails({ isFooterInView: true });
   } else {
-    setTimeout(setupFooterAndRails, 0);
+    setTimeout(() => setupFooterAndRails({ isFooterInView: false }), 0);
   }
 
   const onPrefetchLink = (e) => {
@@ -35,20 +37,21 @@ export function initSecondaryShell() {
 
   const runContactIdlePrefetch = () => {
     const view = getState().currentView;
-    if (view !== 'contact' && view !== 'search' && view !== 'culture') {
-      prefetchRouteByHash('#contact');
+    if (view !== 'contact') {
+      prefetchContactChunkIdle();
     }
   };
   const queueContactPrefetch = () => {
-    const view = getState().currentView;
-    if (view === 'search' || view === 'culture') return;
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(runContactIdlePrefetch, { timeout: 2500 });
-    } else {
-      setTimeout(runContactIdlePrefetch, 1200);
-    }
+    if (getState().currentView === 'contact') return;
+    setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(runContactIdlePrefetch);
+      } else {
+        runContactIdlePrefetch();
+      }
+    }, 3500);
   };
-  if (getState().currentView !== 'search' && getState().currentView !== 'culture') {
+  if (getState().currentView !== 'contact') {
     if (document.readyState === 'complete') {
       queueContactPrefetch();
     } else {

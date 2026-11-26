@@ -157,13 +157,16 @@ export default defineConfig(() => {
           const searchCssDeps = new Set<string>();
           const cultureJsDeps = new Set<string>();
           const cultureCssDeps = new Set<string>();
+          const archiveJsDeps = new Set<string>();
+          const archiveCssDeps = new Set<string>();
           let contactChunkFile = '';
           let searchChunkFile = '';
           let cultureChunkFile = '';
+          let archiveChunkFile = '';
           for (const [fileName, item] of Object.entries(bundle)) {
             if (item.type === 'chunk') {
               if (item.code.includes('__SAFARYTI_ASSET_MAP_JSON__')) {
-                item.code = item.code.replace(/(['"])__SAFARYTI_ASSET_MAP_JSON__\1/g, () => serializedMapLiteral);
+                item.code = item.code.replace(/(['"`])__SAFARYTI_ASSET_MAP_JSON__\1/g, () => serializedMapLiteral);
               }
               if (/^assets\/home-[^/]+\.js$/.test(fileName)) {
                 homeDeps.add(fileName);
@@ -179,6 +182,9 @@ export default defineConfig(() => {
               }
               if (/^assets\/culture-[^/]+\.js$/.test(fileName)) {
                 cultureChunkFile = fileName;
+              }
+              if (/^assets\/archive-[^/]+\.js$/.test(fileName)) {
+                archiveChunkFile = fileName;
               }
             }
           }
@@ -208,6 +214,7 @@ export default defineConfig(() => {
           collectChunkTree(contactChunkFile, contactJsDeps, contactCssDeps);
           collectChunkTree(searchChunkFile, searchJsDeps, searchCssDeps);
           collectChunkTree(cultureChunkFile, cultureJsDeps, cultureCssDeps);
+          collectChunkTree(archiveChunkFile, archiveJsDeps, archiveCssDeps);
           const searchBoot = {
             js: Array.from(searchJsDeps).map((f) => './' + f),
             css: Array.from(searchCssDeps).map((f) => './' + f),
@@ -286,6 +293,24 @@ export default defineConfig(() => {
               ddHref:
                 assetMap['src/assets/images/region_asia_landscape_1794996469512.webp'] ||
                 './src/assets/images/region_asia_landscape_1794996469512.webp',
+            },
+          };
+          const archiveBoot = {
+            js: Array.from(archiveJsDeps).map((f) => './' + f),
+            css: Array.from(archiveCssDeps).map((f) => './' + f),
+            m: {
+              hm: (assetMap['mobile/hero-backdrop-m.webp'] || './mobile/hero-backdrop-m.webp') + ' 800w',
+              hmHref: assetMap['mobile/hero-backdrop-m.webp'] || './mobile/hero-backdrop-m.webp',
+              hd: [
+                (assetMap['src/assets/images/hero_zone_backdrop_1795088843394-240w.webp'] || '') + ' 240w',
+                (assetMap['src/assets/images/hero_zone_backdrop_1795088843394-480w.webp'] || '') + ' 480w',
+                (assetMap['src/assets/images/hero_zone_backdrop_1795088843394-800w.webp'] || '') + ' 800w',
+                (assetMap['src/assets/images/hero_zone_backdrop_1795088843394-1120w.webp'] || '') + ' 1120w',
+                (assetMap['src/assets/images/hero_zone_backdrop_1795088843394.webp'] || '') + ' 1376w',
+              ].join(', '),
+              hdHref:
+                assetMap['src/assets/images/hero_zone_backdrop_1795088843394.webp'] ||
+                './src/assets/images/hero_zone_backdrop_1795088843394.webp',
             },
           };
           extraModulePreloads = Array.from(homeDeps);
@@ -374,6 +399,7 @@ export default defineConfig(() => {
             out = out.replace('/*__SAFARYTI_CONTACT_BOOT__*/null', () => JSON.stringify(contactBoot));
             out = out.replace('/*__SAFARYTI_SEARCH_BOOT__*/null', () => JSON.stringify(searchBoot));
             out = out.replace('/*__SAFARYTI_HUB_BOOT__*/null', () => JSON.stringify(hubBoot));
+            out = out.replace('/*__SAFARYTI_ARCHIVE_BOOT__*/null', () => JSON.stringify(archiveBoot));
             out = out.replace('/*__SAFARYTI_BELOW_CSS__*/null', () => JSON.stringify(sectionsBelowHashed || ''));
             htmlAsset.source = out;
           }

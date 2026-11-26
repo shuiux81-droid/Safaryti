@@ -193,6 +193,55 @@ function preloadHubMedia(view) {
   }
 }
 
+function preloadArchiveMedia() {
+  if (typeof document === 'undefined' || !document.head) return;
+  const am = window.__SAFARYTI_ARCHIVE_MEDIA__;
+  if (am && !document.head.querySelector('link[data-a-pre="hero"]')) {
+    const isMob = !isTabletOrLargerLocal();
+    const href = isMob ? am.hmHref : am.hdHref;
+    const srcset = isMob ? am.hm : am.hd;
+    if (href) {
+      const link = document.createElement('link');
+      link.setAttribute('data-a-pre', 'hero');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.type = 'image/webp';
+      link.href = href;
+      if (srcset) link.setAttribute('imagesrcset', srcset);
+      link.setAttribute('imagesizes', '100vw');
+      link.setAttribute('media', isMob ? '(max-width: 767px)' : '(min-width: 768px)');
+      link.setAttribute('fetchpriority', 'high');
+      document.head.appendChild(link);
+    }
+  }
+  const ab = window.__SAFARYTI_ARCHIVE_BOOT__;
+  if (ab && ab.js && !document.head.querySelector('link[data-a-mod="a"]')) {
+    for (let i = 0; i < ab.js.length; i++) {
+      const mLink = document.createElement('link');
+      mLink.setAttribute('data-a-mod', 'a');
+      mLink.rel = 'modulepreload';
+      mLink.crossOrigin = '';
+      mLink.href = ab.js[i];
+      document.head.appendChild(mLink);
+    }
+  }
+  if (ab && ab.css && !document.head.querySelector('link[data-a-css="a"]')) {
+    for (let i = 0; i < ab.css.length; i++) {
+      const cLink = document.createElement('link');
+      cLink.setAttribute('data-a-css', 'a');
+      cLink.rel = 'preload';
+      cLink.as = 'style';
+      cLink.crossOrigin = '';
+      cLink.href = ab.css[i];
+      document.head.appendChild(cLink);
+    }
+  }
+}
+
+export function prefetchContactChunkIdle() {
+  ROUTE_LOADERS.contact().catch(() => {});
+}
+
 function ensureSectionsBelowCss() {
   if (typeof document === 'undefined' || !document.head) return;
   const href = window.__SAFARYTI_BELOW_CSS__;
@@ -210,6 +259,7 @@ export function prefetchRouteByHash(href) {
   if (route.view === 'contact') preloadContactMedia(false);
   else if (route.view === 'search') preloadSearchMedia();
   else if (route.view === 'culture' || route.view === 'discover') preloadHubMedia(route.view);
+  else if (route.view === 'all-stories') preloadArchiveMedia();
   if (route.view !== 'search' && route.view !== 'culture') ensureSectionsBelowCss();
   const loader = isTipsHubRoute(route) ? ROUTE_LOADERS.tips : ROUTE_LOADERS[route.view];
   if (loader) {
@@ -294,6 +344,7 @@ export function renderRoute(isInitial) {
   if (route.view === 'contact') preloadContactMedia(true);
   else if (route.view === 'search') preloadSearchMedia();
   else if (route.view === 'culture' || route.view === 'discover') preloadHubMedia(route.view);
+  else if (route.view === 'all-stories') preloadArchiveMedia();
   if (route.view !== 'search' && route.view !== 'culture') ensureSectionsBelowCss();
   setState({ currentView: route.view, route, activeSceneIndex: -1 });
   clearTimeout(routeTimer);

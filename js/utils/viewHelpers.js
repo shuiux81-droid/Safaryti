@@ -39,11 +39,12 @@ export function hydrateLazyMedia(root) {
   });
 }
 
-export function renderMediaBox(src, alt, cls, eager, sizes) {
+export function renderMediaBox(src, alt, cls, eager, sizes, fetchpriority) {
+  const fp = fetchpriority !== undefined ? fetchpriority : eager ? 'high' : '';
   const imgHtml = renderPictureHtml(src, {
     alt: alt || '',
     loading: eager ? 'eager' : 'lazy',
-    fetchpriority: eager ? 'high' : '',
+    fetchpriority: fp,
     decoding: 'async',
     sizes: sizes || '(min-width: 1024px) 340px, (min-width: 640px) 46vw, 92vw',
     onerror: "this.closest('.media-box').classList.add('is-fallback')",

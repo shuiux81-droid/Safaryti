@@ -38,6 +38,7 @@
       var cb=/*__SAFARYTI_CONTACT_BOOT__*/null;
       var sb=/*__SAFARYTI_SEARCH_BOOT__*/null;
       var hb=/*__SAFARYTI_HUB_BOOT__*/null;
+      var ab=/*__SAFARYTI_ARCHIVE_BOOT__*/null;
       var cm=cb&&cb.m?cb.m:{
         hm:'./mobile/hero-marsa-m.webp 800w',
         hmHref:'./mobile/hero-marsa-m.webp',
@@ -63,17 +64,19 @@
       };
       window.__SAFARYTI_HUB_MEDIA__=hm;
       window.__SAFARYTI_HUB_BOOT__=hb;
+      var am=ab&&ab.m?ab.m:{
+        hm:'./mobile/hero-backdrop-m.webp 800w',
+        hmHref:'./mobile/hero-backdrop-m.webp',
+        hd:'./src/assets/images/hero_zone_backdrop_1795088843394-240w.webp 240w, ./src/assets/images/hero_zone_backdrop_1795088843394-480w.webp 480w, ./src/assets/images/hero_zone_backdrop_1795088843394-800w.webp 800w, ./src/assets/images/hero_zone_backdrop_1795088843394-1120w.webp 1120w, ./src/assets/images/hero_zone_backdrop_1795088843394.webp 1376w',
+        hdHref:'./src/assets/images/hero_zone_backdrop_1795088843394.webp'
+      };
+      window.__SAFARYTI_ARCHIVE_MEDIA__=am;
+      window.__SAFARYTI_ARCHIVE_BOOT__=ab;
       var bCss=/*__SAFARYTI_BELOW_CSS__*/null;
       window.__SAFARYTI_BELOW_CSS__=bCss;
       var hdEl=document.head||d.firstElementChild;
       var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
-      if(v!=='search'&&v!=='culture'&&bCss){
-        var bl=document.createElement('link');
-        bl.rel='preload';bl.as='style';bl.href=bCss;bl.setAttribute('fetchpriority','low');bl.setAttribute('data-sections-below-link','1');
-        bl.onload=function(){this.onload=null;this.rel='stylesheet';};
-        hdEl.appendChild(bl);
-      }
-      if(v==='contact'||v==='search'||v==='culture'||v==='discover'){
+      if(v==='contact'||v==='search'||v==='culture'||v==='discover'||v==='all-stories'){
         var isMob=window.matchMedia?window.matchMedia('(max-width: 767px)').matches:window.innerWidth<=767;
         if(v==='contact'){
           mk(isMob
@@ -94,11 +97,23 @@
             :{rel:'preload',as:'image',type:'image/webp',href:hm.cdHref,imagesrcset:hm.cd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-h-pre':'c'});
           if(hb&&hb.js){for(var hji=0;hji<hb.js.length;hji++)mk({rel:'modulepreload',crossorigin:'',href:hb.js[hji],'data-h-mod':'c'});}
           if(hb&&hb.css){for(var hci=0;hci<hb.css.length;hci++)mk({rel:'preload',as:'style',crossorigin:'',href:hb.css[hci],'data-h-css':'c'});}
+        }else if(v==='all-stories'){
+          mk(isMob
+            ?{rel:'preload',as:'image',type:'image/webp',href:am.hmHref,imagesrcset:am.hm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-a-pre':'hero'}
+            :{rel:'preload',as:'image',type:'image/webp',href:am.hdHref,imagesrcset:am.hd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-a-pre':'hero'});
+          if(ab&&ab.js){for(var aji=0;aji<ab.js.length;aji++)mk({rel:'modulepreload',crossorigin:'',href:ab.js[aji],'data-a-mod':'a'});}
+          if(ab&&ab.css){for(var aci=0;aci<ab.css.length;aci++)mk({rel:'preload',as:'style',crossorigin:'',href:ab.css[aci],'data-a-css':'a'});}
         }else{
           mk(isMob
             ?{rel:'preload',as:'image',type:'image/webp',href:hm.dmHref,imagesrcset:hm.dm,imagesizes:'100vw',media:'(max-width: 767px)',fetchpriority:'high','data-h-pre':'d'}
             :{rel:'preload',as:'image',type:'image/webp',href:hm.ddHref,imagesrcset:hm.dd,imagesizes:'100vw',media:'(min-width: 768px)',fetchpriority:'high','data-h-pre':'d'});
         }
+      }
+      if(v!=='search'&&v!=='culture'&&bCss){
+        var bl=document.createElement('link');
+        bl.rel='preload';bl.as='style';bl.href=bCss;bl.setAttribute('fetchpriority','low');bl.setAttribute('data-sections-below-link','1');
+        bl.onload=function(){this.onload=null;this.rel='stylesheet';};
+        hdEl.appendChild(bl);
       }
       document.addEventListener('DOMContentLoaded',function(){
         setTimeout(function(){

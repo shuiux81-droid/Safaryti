@@ -4,12 +4,13 @@ import { renderMediaBox } from '../utils/viewHelpers.js';
 export function renderStoryRow(item, options) {
   const hideMeta = Boolean(options && options.hideMeta);
   const eager = Boolean(options && options.eager);
+  const fp = options && options.fetchpriority !== undefined ? options.fetchpriority : undefined;
   return (
     '<a href="' +
     esc(item.href || '#article/' + item.id) +
     '" class="story-row">' +
     '<div class="story-row-media">' +
-    renderMediaBox(item.image, item.title, 'story-row-thumb', eager, '(min-width: 640px) 220px, 96px') +
+    renderMediaBox(item.image, item.title, 'story-row-thumb', eager, '(min-width: 640px) 220px, 96px', fp) +
     '<span class="pill-tag story-row-tag">' +
     esc(item.category) +
     '</span>' +
