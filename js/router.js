@@ -129,10 +129,27 @@ function preloadContactMedia(includeCardPhoto) {
   }
 }
 
+function preloadSearchMedia() {
+  if (typeof document === 'undefined' || !document.head) return;
+  const sm = window.__SAFARYTI_SEARCH_MEDIA__;
+  if (!sm || document.head.querySelector('link[data-s-pre="fbg"]')) return;
+  const href = !isTabletOrLargerLocal() ? sm.fm : sm.fd;
+  if (!href) return;
+  const link = document.createElement('link');
+  link.setAttribute('data-s-pre', 'fbg');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.type = 'image/webp';
+  link.href = href;
+  link.setAttribute('fetchpriority', 'high');
+  document.head.appendChild(link);
+}
+
 export function prefetchRouteByHash(href) {
   if (!href) return;
   const route = parseHash(href);
   if (route.view === 'contact') preloadContactMedia(false);
+  else if (route.view === 'search') preloadSearchMedia();
   const loader = isTipsHubRoute(route) ? ROUTE_LOADERS.tips : ROUTE_LOADERS[route.view];
   if (loader) {
     loader().catch(() => {});
@@ -214,6 +231,7 @@ export function renderRoute(isInitial) {
   const seq = ++activeRouteSeq;
   const route = parseHash();
   if (route.view === 'contact') preloadContactMedia(true);
+  else if (route.view === 'search') preloadSearchMedia();
   setState({ currentView: route.view, route, activeSceneIndex: -1 });
   clearTimeout(routeTimer);
 

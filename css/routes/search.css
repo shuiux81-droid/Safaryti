@@ -1,4 +1,15 @@
 /* Search Page */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .search-page-section {
   padding-block: 2rem 4rem;
 }
@@ -97,12 +108,16 @@
 }
 .search-results {
   margin-top: .75rem;
+  min-height: 5.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 @media (min-width: 640px) {
-  .search-results { margin-top: 1.5rem; }
+  .search-results {
+    margin-top: 1.5rem;
+    min-height: 6.125rem;
+  }
 }
 .search-sec-head {
   display: flex;
@@ -133,6 +148,9 @@
   background: var(--orange-50);
 }
 .search-chips-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;

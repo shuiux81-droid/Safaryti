@@ -92,7 +92,9 @@ export function setupFooterAndRails() {
     }
   }
   const footerEl = document.getElementById('site-footer');
-  if (isMobileViewport() && footerEl && 'IntersectionObserver' in window) {
+  const isFooterInView =
+    footerEl && footerEl.getBoundingClientRect().top < (window.innerHeight || 900) + 100;
+  if (isMobileViewport() && footerEl && !isFooterInView && 'IntersectionObserver' in window) {
     let footerHydrated = false;
     const fIo = new IntersectionObserver(
       (entries) => {

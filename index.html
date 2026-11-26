@@ -33,7 +33,9 @@
         navKey=(cp==='africa'||cp==='إفريقيا')?'africa':(cp==='asia'||cp==='آسيا')?'asia':(cp==='tips'||cp==='نصائح السفر'||cp==='trip-planning'||cp==='تخطيط الرحلات والتنقل'||cp==='travel-safety'||cp==='الأمن والسلامة في السفر')?'tips':(cp==='food'||cp==='heritage'||cp==='المأكولات العالمية'||cp==='التراث والتقاليد')?'culture':(cp==='europe'||cp==='أوروبا'||cp==='north-america'||cp==='أمريكا الشمالية'||cp==='south-america'||cp==='أمريكا الجنوبية'||cp==='australia'||cp==='أستراليا'||cp==='أستراليا (أوقيانوسيا)')?'discover':'';
       }else if(!isHome){navKey='';}
       d.dataset.initNav=navKey;
+      if(v==='search')d.dataset.initView='search';
       var cb=/*__SAFARYTI_CONTACT_BOOT__*/null;
+      var sb=/*__SAFARYTI_SEARCH_BOOT__*/null;
       var cm=cb&&cb.m?cb.m:{
         hm:'./mobile/hero-marsa-m.webp 800w',
         hmHref:'./mobile/hero-marsa-m.webp',
@@ -45,18 +47,27 @@
         pdHref:'./src/assets/images/contact_temple_traveler_1795429682873.webp'
       };
       window.__SAFARYTI_CONTACT_MEDIA__=cm;
-      if(v==='contact'){
+      var sm=sb&&sb.fd?{fd:sb.fd,fm:sb.fm}:{fd:'./src/assets/images/about_warm_clouds_1795352383366.webp',fm:'./src/assets/images/about_warm_clouds_1795352383366-480w.webp'};
+      window.__SAFARYTI_SEARCH_MEDIA__=sm;
+      if(v==='contact'||v==='search'){
         var hdEl=document.head||d.firstElementChild;
         var isMob=window.matchMedia?window.matchMedia('(max-width: 767px)').matches:window.innerWidth<=767;
         var mk=function(attrs){var l=document.createElement('link');for(var k in attrs)if(attrs[k]!=null)l.setAttribute(k,attrs[k]);hdEl.appendChild(l);};
-        mk(isMob
-          ?{rel:'preload',as:'image',type:'image/webp',href:cm.hmHref,imagesrcset:cm.hm,imagesizes:'100vw',fetchpriority:'high','data-c-pre':'hero'}
-          :{rel:'preload',as:'image',type:'image/webp',href:cm.hdHref,imagesrcset:cm.hd,imagesizes:'100vw',fetchpriority:'high','data-c-pre':'hero'});
-        mk(isMob
-          ?{rel:'preload',as:'image',type:'image/webp',href:cm.pmHref,imagesrcset:cm.pm,imagesizes:'(min-width: 1024px) 480px, 92vw','data-c-pre':'photo'}
-          :{rel:'preload',as:'image',type:'image/webp',href:cm.pdHref,imagesrcset:cm.pd,imagesizes:'(min-width: 1024px) 480px, 92vw','data-c-pre':'photo'});
-        if(cb&&cb.js){for(var ji=0;ji<cb.js.length;ji++)mk({rel:'modulepreload',crossorigin:'',href:cb.js[ji]});}
-        if(cb&&cb.css){for(var ci=0;ci<cb.css.length;ci++)mk({rel:'preload',as:'style',crossorigin:'',href:cb.css[ci]});}
+        if(v==='contact'){
+          mk(isMob
+            ?{rel:'preload',as:'image',type:'image/webp',href:cm.hmHref,imagesrcset:cm.hm,imagesizes:'100vw',fetchpriority:'high','data-c-pre':'hero'}
+            :{rel:'preload',as:'image',type:'image/webp',href:cm.hdHref,imagesrcset:cm.hd,imagesizes:'100vw',fetchpriority:'high','data-c-pre':'hero'});
+          mk(isMob
+            ?{rel:'preload',as:'image',type:'image/webp',href:cm.pmHref,imagesrcset:cm.pm,imagesizes:'(min-width: 1024px) 480px, 92vw','data-c-pre':'photo'}
+            :{rel:'preload',as:'image',type:'image/webp',href:cm.pdHref,imagesrcset:cm.pd,imagesizes:'(min-width: 1024px) 480px, 92vw','data-c-pre':'photo'});
+          if(cb&&cb.js){for(var ji=0;ji<cb.js.length;ji++)mk({rel:'modulepreload',crossorigin:'',href:cb.js[ji]});}
+          if(cb&&cb.css){for(var ci=0;ci<cb.css.length;ci++)mk({rel:'preload',as:'style',crossorigin:'',href:cb.css[ci]});}
+        }else{
+          mk({rel:'preload',as:'image',type:'image/webp',href:isMob?sm.fm:sm.fd,fetchpriority:'high','data-s-pre':'fbg'});
+          if(sb&&sb.belowCss)mk({rel:'stylesheet',href:sb.belowCss});
+          if(sb&&sb.js){for(var sj=0;sj<sb.js.length;sj++)mk({rel:'modulepreload',crossorigin:'',href:sb.js[sj]});}
+          if(sb&&sb.css){for(var sc=0;sc<sb.css.length;sc++)mk({rel:'preload',as:'style',crossorigin:'',href:sb.css[sc]});}
+        }
       }
       document.addEventListener('DOMContentLoaded',function(){
         setTimeout(function(){
@@ -89,6 +100,9 @@
     .is-nonhome-init #hero-band[data-ssr-hero="1"]{display:none}
     html.js #hero-band[data-ssr-hero="1"]{margin-bottom:1100px}
     html.js.is-nonhome-init #main-content{min-height:1100px}
+    html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:38.125rem}
+    @media(min-width:640px)and (max-width:1023px){html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:41.3rem}}
+    @media(min-width:1024px){html.js.is-nonhome-init[data-init-view="search"] #main-content{min-height:34.5rem}}
   </style>
   <link rel="stylesheet" href="./css/base.css">
   <link rel="stylesheet" href="./css/sections.css">

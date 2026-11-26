@@ -153,7 +153,10 @@ export default defineConfig(() => {
           const homeDeps = new Set<string>();
           const contactJsDeps = new Set<string>();
           const contactCssDeps = new Set<string>();
+          const searchJsDeps = new Set<string>();
+          const searchCssDeps = new Set<string>();
           let contactChunkFile = '';
+          let searchChunkFile = '';
           for (const [fileName, item] of Object.entries(bundle)) {
             if (item.type === 'chunk') {
               if (item.code.includes('__SAFARYTI_ASSET_MAP_JSON__')) {
@@ -168,28 +171,47 @@ export default defineConfig(() => {
               if (/^assets\/contact-[^/]+\.js$/.test(fileName)) {
                 contactChunkFile = fileName;
               }
+              if (/^assets\/search-[^/]+\.js$/.test(fileName)) {
+                searchChunkFile = fileName;
+              }
             }
           }
-          if (contactChunkFile) {
-            const queue = [contactChunkFile];
+          const collectChunkTree = (entryFile: string, jsOut: Set<string>, cssOut: Set<string>) => {
+            if (!entryFile) return;
+            const queue = [entryFile];
             while (queue.length) {
               const dep = queue.shift()!;
-              if (contactJsDeps.has(dep)) continue;
-              contactJsDeps.add(dep);
+              if (jsOut.has(dep)) continue;
+              jsOut.add(dep);
               const chunk = bundle[dep];
               if (chunk && chunk.type === 'chunk') {
                 for (const imp of chunk.imports || []) {
-                  if (!contactJsDeps.has(imp)) queue.push(imp);
+                  if (!jsOut.has(imp)) queue.push(imp);
                 }
                 const importedCss = (chunk as { viteMetadata?: { importedCss?: Set<string> } }).viteMetadata?.importedCss;
                 if (importedCss) {
                   for (const cssFile of importedCss) {
-                    contactCssDeps.add(cssFile);
+                    if (!/^assets\/index-[^/]+\.css$/.test(cssFile)) {
+                      cssOut.add(cssFile);
+                    }
                   }
                 }
               }
             }
-          }
+          };
+          collectChunkTree(contactChunkFile, contactJsDeps, contactCssDeps);
+          collectChunkTree(searchChunkFile, searchJsDeps, searchCssDeps);
+          const searchBoot = {
+            js: Array.from(searchJsDeps).map((f) => './' + f),
+            css: Array.from(searchCssDeps).map((f) => './' + f),
+            belowCss: sectionsBelowHashed,
+            fd:
+              assetMap['src/assets/images/about_warm_clouds_1795352383366.webp'] ||
+              './src/assets/images/about_warm_clouds_1795352383366.webp',
+            fm:
+              assetMap['src/assets/images/about_warm_clouds_1795352383366-480w.webp'] ||
+              './src/assets/images/about_warm_clouds_1795352383366-480w.webp',
+          };
           const contactBoot = {
             js: Array.from(contactJsDeps).map((f) => './' + f),
             css: Array.from(contactCssDeps).map((f) => './' + f),
@@ -311,6 +333,7 @@ export default defineConfig(() => {
             }
 
             out = out.replace('/*__SAFARYTI_CONTACT_BOOT__*/null', () => JSON.stringify(contactBoot));
+            out = out.replace('/*__SAFARYTI_SEARCH_BOOT__*/null', () => JSON.stringify(searchBoot));
             htmlAsset.source = out;
           }
         },

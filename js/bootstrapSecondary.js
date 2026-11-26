@@ -16,7 +16,10 @@ export function initSecondaryShell() {
   setupHeader();
   initScrollController();
   setupMenuOverlay();
-  if (isTabletOrLarger()) {
+  const footerEl = document.getElementById('site-footer');
+  const footerNearViewport =
+    footerEl && footerEl.getBoundingClientRect().top < (window.innerHeight || 900) + 100;
+  if (isTabletOrLarger() || footerNearViewport) {
     setupFooterAndRails();
   } else {
     setTimeout(setupFooterAndRails, 0);
@@ -31,21 +34,25 @@ export function initSecondaryShell() {
   document.addEventListener('focusin', onPrefetchLink, true);
 
   const runContactIdlePrefetch = () => {
-    if (getState().currentView !== 'contact') {
+    const view = getState().currentView;
+    if (view !== 'contact' && view !== 'search') {
       prefetchRouteByHash('#contact');
     }
   };
   const queueContactPrefetch = () => {
+    if (getState().currentView === 'search') return;
     if ('requestIdleCallback' in window) {
       window.requestIdleCallback(runContactIdlePrefetch, { timeout: 2500 });
     } else {
-      setTimeout(runContactPrefetch, 1200);
+      setTimeout(runContactIdlePrefetch, 1200);
     }
   };
-  if (document.readyState === 'complete') {
-    queueContactPrefetch();
-  } else {
-    window.addEventListener('load', queueContactPrefetch, { once: true });
+  if (getState().currentView !== 'search') {
+    if (document.readyState === 'complete') {
+      queueContactPrefetch();
+    } else {
+      window.addEventListener('load', queueContactPrefetch, { once: true });
+    }
   }
 
   // Handle same-hash re-clicks on #discover, #culture, and #search (scroll to top & focus)

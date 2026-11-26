@@ -21,9 +21,9 @@ function renderRegionChipsHtml() {
   return (
     '<section class="search-regions-block" aria-label="تصفح حسب المنطقة">' +
     '<div class="search-sec-head"><h2 class="search-sec-title">تصفح حسب المنطقة</h2></div>' +
-    '<div class="search-chips-row is-regions">' +
-    SEARCH_REGIONS.map((name) => '<button type="button" class="search-chip" data-search-query="' + esc(name) + '">' + esc(name) + '</button>').join('') +
-    '</div>' +
+    '<ul class="search-chips-row is-regions">' +
+    SEARCH_REGIONS.map((name) => '<li><button type="button" class="search-chip" data-search-query="' + esc(name) + '">' + esc(name) + '</button></li>').join('') +
+    '</ul>' +
     '</section>'
   );
 }
@@ -49,7 +49,7 @@ function renderSearchCardHtml(item, idx, rawQuery) {
     }) +
     '<div class="search-card-thumb-fallback" aria-hidden="true"><img src="' +
     esc(CONFIG.assets.logo) +
-    '" alt="" decoding="async" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></div>' +
+    '" alt="" width="272" height="112" decoding="async" onerror="window.__safarytiLogoFallback&&window.__safarytiLogoFallback(this,false)"></div>' +
     '</div>' +
     '<div class="search-card-body">' +
     '<span class="search-card-cat">' +
@@ -86,13 +86,13 @@ export function renderSearchPage(main, initialQuery) {
     }) +
     '<section class="container search-page-section" aria-label="صفحة البحث">' +
     '<div class="search-page-inner">' +
-    '<div class="search-field-sticky">' +
+    '<div class="search-field-sticky" role="search" aria-label="البحث في المقالات">' +
     '<div class="search-field-pill">' +
     '<span class="search-field-icon" aria-hidden="true">' +
     '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>' +
     '</span>' +
     '<label for="search-page-input" class="sr-only">ابحث عن وجهة أو قصة</label>' +
-    '<input id="search-page-input" class="search-overlay-input" type="search" placeholder="ابحث عن وجهة أو قصة..." autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="search-listbox">' +
+    '<input id="search-page-input" class="search-overlay-input" type="search" placeholder="ابحث عن وجهة أو قصة..." autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false">' +
     '<button type="button" id="search-clear-btn" class="search-clear-btn" aria-label="مسح البحث" hidden>' +
     '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>' +
     '</button>' +
@@ -155,14 +155,18 @@ export function renderSearchPage(main, initialQuery) {
           '<h2 class="search-sec-title">عمليات بحث سابقة</h2>' +
           '<button type="button" id="search-clear-history-btn" class="search-history-clear">مسح</button>' +
           '</div>' +
-          '<div class="search-chips-row">' +
+          '<ul class="search-chips-row">' +
           recent
-            .map((item) => '<button type="button" class="search-chip" data-search-query="' + esc(item) + '">' + clockSvg + '<span>' + esc(item) + '</span></button>')
+            .map((item) => '<li><button type="button" class="search-chip" data-search-query="' + esc(item) + '">' + clockSvg + '<span>' + esc(item) + '</span></button></li>')
             .join('') +
-          '</div>' +
+          '</ul>' +
           '</section>'
         : '';
       searchResults.innerHTML = recentHtml + renderRegionChipsHtml();
+      if (searchInput) {
+        searchInput.setAttribute('aria-expanded', 'false');
+        searchInput.removeAttribute('aria-controls');
+      }
       if (searchLiveStatus) searchLiveStatus.textContent = '';
       return;
     }
@@ -196,6 +200,10 @@ export function renderSearchPage(main, initialQuery) {
         '<p class="search-no-results-sub">جرّب كلمة أبسط أو اختر منطقة من الأسفل.</p>' +
         '</div>' +
         renderRegionChipsHtml();
+      if (searchInput) {
+        searchInput.setAttribute('aria-expanded', 'false');
+        searchInput.removeAttribute('aria-controls');
+      }
       if (searchLiveStatus) {
         searchLiveStatus.textContent = 'لم نجد نتائج لـ «' + query + '»';
       }
@@ -223,6 +231,10 @@ export function renderSearchPage(main, initialQuery) {
         : '';
 
     searchResults.innerHTML = '<div>' + countLineHtml + cardsHtml + '</div>' + allResultsHtml;
+    if (searchInput) {
+      searchInput.setAttribute('aria-expanded', 'true');
+      searchInput.setAttribute('aria-controls', 'search-listbox');
+    }
     if (searchLiveStatus) {
       searchLiveStatus.textContent = countLabel + ' لـ «' + query + '»';
     }
